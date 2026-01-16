@@ -73,7 +73,7 @@ export const SEO: React.FC<SEOProps> = ({ title, description, keywords, path, og
 
     const schemas = [];
     
-    // Global Organization Schema
+    // Global Organization Schema (LocalBusiness / ProfessionalService)
     schemas.push({
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
@@ -84,8 +84,19 @@ export const SEO: React.FC<SEOProps> = ({ title, description, keywords, path, og
       "priceRange": "€€",
       "address": {
         "@type": "PostalAddress",
+        "addressLocality": "Murcia",
+        "addressRegion": "Murcia",
         "addressCountry": "ES"
-      }
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Murcia" },
+        { "@type": "City", "name": "Alicante" },
+        { "@type": "City", "name": "Cartagena" },
+        { "@type": "City", "name": "Molina de Segura" },
+        { "@type": "City", "name": "Lorca" },
+        { "@type": "City", "name": "Alcantarilla" },
+        { "@type": "City", "name": "Cieza" }
+      ]
     });
 
     // Breadcrumb Schema
