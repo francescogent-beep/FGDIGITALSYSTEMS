@@ -34,7 +34,7 @@ export const TallyModal: React.FC = () => {
           <button 
             onClick={() => setIsOpen(false)}
             className="p-2 md:p-3 rounded-full bg-slate-50 text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-all active:scale-90"
-            aria-label="Cerrar modal"
+            aria-label="Cerrar formulario de propuesta"
           >
             <X size={24} />
           </button>
