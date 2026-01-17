@@ -13,18 +13,19 @@
     <!-- 2. Optimized Font Loading -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" media="all">
 
-    <!-- 3. Refined Critical CSS for better LCP & FCP -->
+    <!-- 3. Critical CSS for 100 Performance & 0 CLS -->
     <style>
-      :root { --blue-600: #2563eb; --slate-900: #0f172a; --slate-600: #475569; --slate-50: #f8fafc; }
+      :root { --blue-600: #2563eb; --slate-900: #0f172a; --slate-700: #334155; --slate-600: #475569; --slate-50: #f8fafc; }
       body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: var(--slate-50); color: var(--slate-900); -webkit-font-smoothing: antialiased; }
       #root { min-height: 100vh; display: flex; flex-direction: column; }
-      .hero-section { min-height: 60vh; display: flex; align-items: center; justify-content: center; background: #fff; text-align: center; padding: 4rem 1rem; }
-      .lcp-title { font-size: 2.25rem; font-weight: 800; line-height: 1.1; color: var(--slate-900); margin-bottom: 1.5rem; letter-spacing: -0.025em; max-width: 900px; margin-left: auto; margin-right: auto; }
+      .hero-section { min-height: 60vh; display: flex; align-items: center; justify-content: center; background: #fff; text-align: center; padding: 5rem 1rem; }
+      .lcp-title { font-size: 2.5rem; font-weight: 800; line-height: 1.1; color: var(--slate-900); margin-bottom: 1.5rem; letter-spacing: -0.025em; max-width: 900px; margin-left: auto; margin-right: auto; }
       @media (min-width: 768px) { .lcp-title { font-size: 4.5rem; } }
       .lcp-title span { color: var(--blue-600); }
-      .navbar-placeholder { height: 64px; background: white; border-bottom: 1px solid #e2e8f0; width: 100%; position: sticky; top: 0; z-index: 50; }
-      .hero-sub { color: var(--slate-600); font-size: 1.125rem; max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.6; }
+      .hero-sub { color: var(--slate-600); font-size: 1.125rem; max-width: 650px; margin: 0 auto 2.5rem; line-height: 1.6; }
       @media (min-width: 768px) { .hero-sub { font-size: 1.5rem; } }
+      .navbar-placeholder { height: 64px; background: white; border-bottom: 1px solid #e2e8f0; width: 100%; position: sticky; top: 0; z-index: 50; }
+      .btn-stub { display: inline-flex; height: 60px; width: 280px; background: var(--blue-600); border-radius: 1rem; margin: 0.5rem; }
     </style>
 
     <!-- 4. Tailwind CDN with defer -->
@@ -58,16 +59,19 @@
     }
     </script>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body>
     <div id="root">
         <div class="navbar-placeholder"></div>
-        <div class="hero-section">
+        <main class="hero-section">
             <div style="max-width: 900px; margin: 0 auto; padding: 0 1rem;">
-                <h1 class="lcp-title" fetchpriority="high">¿Tu web trae <span>clientes</span> o solo facturas?</h1>
+                <h1 class="lcp-title">¿Tu web trae <span>clientes</span> o solo facturas?</h1>
                 <p class="hero-sub">Hacemos webs que funcionan y te posicionan en Google con precios claros desde el primer día.</p>
-                <div style="height: 60px;"></div>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+                    <div class="btn-stub"></div>
+                    <div class="btn-stub" style="background: transparent; border: 2px solid #e2e8f0;"></div>
+                </div>
             </div>
-        </div>
+        </main>
     </div>
     <script type="module" src="/index.tsx" defer></script>
 </body>
