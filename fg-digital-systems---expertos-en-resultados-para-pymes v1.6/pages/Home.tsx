@@ -2,7 +2,7 @@ import React from 'react';
 import { Section, Button, PricingCard, FAQAccordion } from '../components/UI';
 import { SEO } from '../components/SEO';
 import { METADATA } from '../seo/metadata';
-import { PRICING_PLANS, FAQS, REVIEWS } from '../constants';
+import { PRICING_PLANS, FAQS } from '../constants';
 import { 
   ArrowRight, 
   CircleCheck, 
@@ -28,24 +28,24 @@ const Home: React.FC = () => {
     <main>
       <SEO {...METADATA.home} />
       
-      {/* 1. HERO */}
-      <Section className="pt-12 md:pt-32 pb-10 md:pb-16 text-center bg-gradient-to-b from-white to-slate-50">
+      {/* 1. HERO - Optimized for LCP */}
+      <Section className="hero-gradient text-center">
         <div className="max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 text-blue-800 rounded-full text-sm font-bold mb-6 border border-blue-100">
             <ShieldCheck size={16} className="text-blue-600" aria-hidden="true" />
             Resultados reales para negocios locales
           </div>
-          <h1 className="hero-title font-extrabold text-slate-900 leading-tight mb-6 text-balance tracking-tight">
+          <h1 className="hero-title font-extrabold text-slate-900 leading-tight mb-6 tracking-tight">
             ¿Tu web te trae <span className="text-blue-600">clientes</span> o solo facturas?
           </h1>
           <p className="text-lg md:text-2xl text-slate-600 mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed">
             Hacemos webs que funcionan y te posicionan en Google con <strong>precios claros desde el primer día</strong>. Sin palabrería técnica ni cuotas escondidas.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 px-4">
-            <Button tallyId="q4GKJO" variant="primary" className="px-10 py-5 text-lg shadow-2xl shadow-blue-500/20">
+            <Button tallyId="q4GKJO" variant="primary" className="btn-lcp shadow-2xl shadow-blue-500/20">
               Solicitar Propuesta Clara
             </Button>
-            <Button to="/precios" variant="outline" className="px-10 py-5 text-lg">
+            <Button to="/tarifas-diseno-web" variant="outline" className="px-10 py-5 text-lg">
               Ver Packs y Precios
             </Button>
           </div>
@@ -264,7 +264,7 @@ const Home: React.FC = () => {
             ))}
           </div>
           <div className="mt-8 text-center">
-            <Link to="/faq" className="text-blue-600 font-bold flex items-center justify-center gap-2 hover:underline">
+            <Link to="/preguntas-frecuentes" className="text-blue-600 font-bold flex items-center justify-center gap-2 hover:underline">
               Ver todas las preguntas <ArrowRight size={18} />
             </Link>
           </div>
