@@ -44,7 +44,7 @@ export const Navbar: React.FC = () => {
           <button 
             className="md:hidden p-2 text-slate-600" 
             onClick={() => setIsOpen(!isOpen)}
-            aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-label={isOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
             aria-expanded={isOpen}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -144,7 +144,7 @@ export const Footer: React.FC = () => {
           </p>
         </div>
         <div>
-          <h4 className="text-white font-bold mb-4">Servicios</h4>
+          <h2 className="text-white font-bold text-lg mb-4">Servicios</h2>
           <ul className="space-y-2">
             <li><Link to="/servicios-diseno-web-seo" className="hover:text-blue-400 transition-colors">Diseño Web Pymes</Link></li>
             <li><Link to="/servicios-diseno-web-seo" className="hover:text-blue-400 transition-colors">SEO Local</Link></li>
@@ -153,7 +153,7 @@ export const Footer: React.FC = () => {
           </ul>
         </div>
         <div>
-          <h4 className="text-white font-bold mb-4">Compañía</h4>
+          <h2 className="text-white font-bold text-lg mb-4">Compañía</h2>
           <ul className="space-y-2">
             <li><Link to="/sobre-nosotros" className="hover:text-blue-400 transition-colors">Sobre Nosotros</Link></li>
             <li><Link to="/tarifas-diseno-web" className="hover:text-blue-400 transition-colors">Tarifas</Link></li>
@@ -162,7 +162,7 @@ export const Footer: React.FC = () => {
           </ul>
         </div>
         <div>
-          <h4 className="text-white font-bold mb-4">Zonas</h4>
+          <h2 className="text-white font-bold text-lg mb-4">Zonas</h2>
           <div className="space-y-2">
             <button 
               onClick={() => setShowMurcia(!showMurcia)}
