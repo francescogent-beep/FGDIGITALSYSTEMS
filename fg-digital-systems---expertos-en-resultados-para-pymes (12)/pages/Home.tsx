@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Section, Button, PricingCard, FAQAccordion } from '../components/UI';
 import { SEO } from '../components/SEO';
@@ -14,7 +13,6 @@ import {
   UserX, 
   CircleAlert, 
   MousePointerClick,
-  Clock,
   ArrowDown,
   PhoneCall,
   Globe
@@ -33,7 +31,6 @@ const Home: React.FC = () => {
             <ShieldCheck size={16} className="text-blue-600" aria-hidden="true" />
             Resultados reales para negocios locales
           </div>
-          {/* Fix: Removed invalid fetchpriority attribute from h1 element */}
           <h1 className="lcp-title">
             ¿Tu web te trae <span className="text-blue-600">clientes</span> o solo facturas?
           </h1>
@@ -48,7 +45,7 @@ const Home: React.FC = () => {
               Ver Packs y Precios
             </Button>
           </div>
-          <div className="mt-10 md:mt-12 text-slate-600 text-xs font-bold uppercase tracking-widest flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+          <div className="mt-10 md:mt-12 text-slate-500 text-xs font-bold uppercase tracking-widest flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
             <span className="flex items-center gap-2"><CircleCheck size={16} className="text-green-600" aria-hidden="true" /> Pago único</span>
             <span className="flex items-center gap-2"><CircleCheck size={16} className="text-green-600" aria-hidden="true" /> Propiedad 100% tuya</span>
             <span className="flex items-center gap-2"><CircleCheck size={16} className="text-green-600" aria-hidden="true" /> Sin permanencias</span>
@@ -71,8 +68,8 @@ const Home: React.FC = () => {
                 {[
                   { t: "“Mi web no me trae clientes”", d: "Es bonita, pero el teléfono no suena.", icon: <UserX className="text-red-600" aria-hidden="true" /> },
                   { t: "“No aparezco en Google”", d: "Tus vecinos encuentran a tu competencia antes que a ti.", icon: <Search className="text-red-600" aria-hidden="true" /> },
-                  { t: "“Dependo solo del boca a boca”", d: "Si no te recomiendan hoy, no facturas mañana.", icon: <CircleAlert className="text-red-600" aria-hidden="true" /> },
-                  { t: "“Me contactan, pero no convierten”", d: "Recibes mensajes de curiosos que no compran nada.", icon: <MousePointerClick className="text-red-600" aria-hidden="true" /> }
+                  { t: "“Dependo solo del boca a boca”", d: "Si no te recomiendan hoy, no facturas mañana.", icon: <CircleAlert className="text-red-700" aria-hidden="true" /> },
+                  { t: "“Me contactan, pero no convierten”", d: "Recibes mensajes de curiosos que no compran nada.", icon: <MousePointerClick className="text-red-700" aria-hidden="true" /> }
                 ].map((p, i) => (
                   <div key={i} className="flex gap-4 p-4 md:p-5 bg-white border border-slate-100 rounded-2xl shadow-sm group hover:border-red-100 transition-colors">
                     <div className="bg-red-50 p-2.5 rounded-xl h-fit group-hover:scale-110 transition-transform">{p.icon}</div>
@@ -90,7 +87,7 @@ const Home: React.FC = () => {
                 <ArrowDown size={16} aria-hidden="true" />
               </div>
               <div className="mb-6 md:mb-10">
-                <span className="text-white font-bold uppercase tracking-widest text-xs mb-2 block italic opacity-90">Nuestra solución</span>
+                <span className="text-blue-50 font-bold uppercase tracking-widest text-xs mb-2 block italic">Nuestra solución</span>
                 <h2 className="text-2xl md:text-4xl font-extrabold leading-tight">Así es como vamos a traerte resultados</h2>
               </div>
               <div className="space-y-6 md:space-y-8">
@@ -105,7 +102,7 @@ const Home: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="text-lg md:text-xl font-bold mb-1 text-white">{s.title}</h3>
-                      <p className="text-white text-xs md:text-sm leading-relaxed opacity-90">{s.desc}</p>
+                      <p className="text-blue-50 text-xs md:text-sm leading-relaxed">{s.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -152,14 +149,14 @@ const Home: React.FC = () => {
              <div className="space-y-4 md:space-y-6">
                 <div className="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-slate-200">
                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                      <div className="w-2 h-2 bg-red-500 rounded-full"></div>
                       <span className="text-[10px] font-black uppercase text-slate-500">Agencia Tradicional</span>
                    </div>
                    <p className="text-slate-600 text-xs italic">"Vendemos sistemas holísticos digitales..."</p>
                 </div>
                 <div className="bg-slate-900 p-6 rounded-xl shadow-2xl border border-slate-800 transform md:translate-x-6">
                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                       <span className="text-[10px] font-black uppercase text-blue-400">FG DIGITAL SYSTEMS</span>
                    </div>
                    <p className="text-white font-bold text-base leading-tight">"Pack Inicial: 690€. Lanzamos en 3-5 días."</p>
