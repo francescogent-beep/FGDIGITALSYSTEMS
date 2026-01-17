@@ -5,37 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FG Digital Systems | Diseño Web y SEO para Pymes</title>
     
-    <!-- Preconnect & DNS Prefetch for critical origins -->
+    <!-- Resource Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://esm.sh">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://esm.sh">
     
-    <!-- High Priority Font Preload -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrX2iLndDcAP_0gxJubA.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Optimized Font Loading -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    </noscript>
 
-    <!-- Optimized Font Loading (Non-blocking) -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" media="print" onload="this.media='all'">
-
-    <!-- Critical CSS: Inlined to prevent FOUC and hit LCP < 1.2s -->
-    <style>
-        :root { --blue-600: #2563eb; --slate-900: #0f172a; --slate-50: #f8fafc; }
-        body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: var(--slate-50); color: var(--slate-900); }
-        #root { min-height: 100vh; display: flex; flex-direction: column; }
-        .hero-title { font-size: 2.25rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.025em; text-wrap: balance; }
-        @media (min-width: 768px) { .hero-title { font-size: 4.5rem; } }
-        .hero-gradient { background: linear-gradient(to bottom, #fff, var(--slate-50)); padding-top: 3rem; padding-bottom: 2.5rem; }
-        @media (min-width: 768px) { .hero-gradient { padding-top: 8rem; padding-bottom: 4rem; } }
-        .btn-lcp { display: inline-flex; align-items: center; justify-content: center; padding: 1.25rem 2.5rem; background: var(--blue-600); color: #fff; border-radius: 1rem; font-weight: 700; text-decoration: none; }
-    </style>
-
+    <!-- Tailwind CDN (Restored for pixel-perfection) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        blue: {
+                            50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a', 950: '#172554',
+                        },
                     },
                 }
             }
@@ -56,17 +52,34 @@
     }
     </script>
     <link rel="stylesheet" href="/index.css">
+    
+    <!-- Minor CLS prevention style -->
+    <style>
+      #root { min-height: 100vh; }
+      .hero-section { min-height: 400px; }
+    </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
-    <!-- Defer third party completely -->
+    
+    <!-- Deferred Third Party -->
     <script>
         window.addEventListener('load', () => {
-            const script = document.createElement('script');
-            script.src = "https://tally.so/widgets/embed.js";
-            script.defer = true;
-            document.body.appendChild(script);
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(() => {
+                    const script = document.createElement('script');
+                    script.src = "https://tally.so/widgets/embed.js";
+                    script.async = true;
+                    document.body.appendChild(script);
+                });
+            } else {
+                setTimeout(() => {
+                    const script = document.createElement('script');
+                    script.src = "https://tally.so/widgets/embed.js";
+                    document.body.appendChild(script);
+                }, 3000);
+            }
         });
     </script>
 </body>
