@@ -41,6 +41,10 @@ const About: React.FC = () => {
                   src="https://i.imgur.com/ILoCkO3.png" 
                   alt="Francesco, fundador de FG Digital Systems" 
                   className="w-full h-full object-cover" 
+                  loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="533"
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 bg-slate-900 text-white p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-xl">
