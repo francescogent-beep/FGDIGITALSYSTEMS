@@ -106,7 +106,7 @@ Cuándo: ${answers.q4}${url ? `\nMi web actual: ${url}` : ''}`;
         <button
           onClick={() => setIsOpen(true)}
           className="relative bg-green-500 text-white p-4 md:px-6 md:py-4 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2 group border-2 border-white/20"
-          aria-label="Contactar por WhatsApp"
+          aria-label="Abrir calificador de presupuesto por WhatsApp"
         >
           <MessageCircle size={24} className="group-hover:rotate-12 transition-transform" />
           <span className="hidden md:inline font-black uppercase tracking-tight text-sm">¿Dudas? Hablamos</span>
@@ -116,7 +116,7 @@ Cuándo: ${answers.q4}${url ? `\nMi web actual: ${url}` : ''}`;
       {/* Modern Modal System */}
       {isOpen && (
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-md transition-all duration-300">
-          <div className="bg-white rounded-[2.5rem] w-full max-w-lg shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] flex flex-col overflow-hidden border border-slate-200" role="dialog" aria-labelledby="qualifier-title">
+          <div className="bg-white rounded-[2.5rem] w-full max-w-lg shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] flex flex-col overflow-hidden border border-slate-200" role="dialog" aria-labelledby="qualifier-title" aria-modal="true">
             
             {/* Progress Bar Container */}
             <div className="h-1.5 w-full bg-slate-100 relative">
@@ -140,7 +140,7 @@ Cuándo: ${answers.q4}${url ? `\nMi web actual: ${url}` : ''}`;
               <button 
                 onClick={() => setIsOpen(false)} 
                 className="p-2 text-slate-400 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-all"
-                aria-label="Cerrar cuestionario"
+                aria-label="Cerrar cuestionario de WhatsApp"
               >
                 <X size={20} />
               </button>
@@ -152,9 +152,9 @@ Cuándo: ${answers.q4}${url ? `\nMi web actual: ${url}` : ''}`;
               {step < QUESTIONS.length ? (
                 // Step-by-step Question
                 <div className="flex-grow">
-                  <h4 className="text-2xl font-black text-slate-900 mb-6 leading-tight">
+                  <p className="text-2xl font-black text-slate-900 mb-6 leading-tight">
                     {QUESTIONS[step].label}
-                  </h4>
+                  </p>
                   <div className="grid grid-cols-1 gap-3">
                     {QUESTIONS[step].options.map((opt) => (
                       <button
@@ -183,7 +183,7 @@ Cuándo: ${answers.q4}${url ? `\nMi web actual: ${url}` : ''}`;
                     <div className="bg-green-100 text-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                       <CheckCircle2 size={32} />
                     </div>
-                    <h4 className="text-2xl font-black text-slate-900">¡Todo listo!</h4>
+                    <p className="text-2xl font-black text-slate-900">¡Todo listo!</p>
                     <p className="text-slate-500 font-medium">Revisa tu objetivo antes de enviar.</p>
                   </div>
 
