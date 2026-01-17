@@ -28,21 +28,21 @@ const Home: React.FC = () => {
     <main>
       <SEO {...METADATA.home} />
       
-      {/* 1. HERO - Restored original spacing and classes */}
-      <Section className="pt-12 md:pt-32 pb-10 md:pb-16 text-center bg-gradient-to-b from-white to-slate-50 hero-section">
+      {/* 1. HERO - Optimized with Critical CSS for LCP */}
+      <section className="hero-section">
         <div className="max-w-4xl mx-auto px-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 text-blue-800 rounded-full text-sm font-bold mb-6 border border-blue-100">
             <ShieldCheck size={16} className="text-blue-600" aria-hidden="true" />
             Resultados reales para negocios locales
           </div>
-          <h1 className="text-4xl md:text-7xl font-extrabold text-slate-900 leading-tight mb-6 text-balance tracking-tight">
+          <h1 className="lcp-title">
             ¿Tu web te trae <span className="text-blue-600">clientes</span> o solo facturas?
           </h1>
-          <p className="text-lg md:text-2xl text-slate-600 mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="hero-sub">
             Hacemos webs que funcionan y te posicionan en Google con <strong>precios claros desde el primer día</strong>. Sin palabrería técnica ni cuotas escondidas.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button tallyId="q4GKJO" variant="primary" className="px-10 py-5 text-lg shadow-2xl shadow-blue-500/20">
+            <Button tallyId="q4GKJO" variant="primary" className="btn-primary-lcp shadow-2xl shadow-blue-500/20">
               Solicitar Propuesta Clara
             </Button>
             <Button to="/tarifas-diseno-web" variant="outline" className="px-10 py-5 text-lg">
@@ -55,7 +55,7 @@ const Home: React.FC = () => {
             <span className="flex items-center gap-2"><CircleCheck size={16} className="text-green-500" aria-hidden="true" /> Sin permanencias</span>
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* 2. PROBLEMS & SOLUTIONS */}
       <Section className="bg-white border-y border-slate-100 py-8 md:py-20 relative overflow-hidden">
