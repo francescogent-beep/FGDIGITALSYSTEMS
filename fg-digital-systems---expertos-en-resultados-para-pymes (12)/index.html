@@ -9,12 +9,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://esm.sh">
     
     <!-- 2. Optimized Font Loading -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" media="all">
 
-    <!-- 3. Refined Critical CSS for better LCP -->
+    <!-- 3. Refined Critical CSS for better LCP & FCP -->
     <style>
       :root { --blue-600: #2563eb; --slate-900: #0f172a; --slate-600: #475569; --slate-50: #f8fafc; }
       body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: var(--slate-50); color: var(--slate-900); -webkit-font-smoothing: antialiased; }
@@ -24,9 +23,11 @@
       @media (min-width: 768px) { .lcp-title { font-size: 4.5rem; } }
       .lcp-title span { color: var(--blue-600); }
       .navbar-placeholder { height: 64px; background: white; border-bottom: 1px solid #e2e8f0; width: 100%; position: sticky; top: 0; z-index: 50; }
+      .hero-sub { color: var(--slate-600); font-size: 1.125rem; max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.6; }
+      @media (min-width: 768px) { .hero-sub { font-size: 1.5rem; } }
     </style>
 
-    <!-- 4. Tailwind CDN -->
+    <!-- 4. Tailwind CDN with defer -->
     <script src="https://cdn.tailwindcss.com?plugins=typography" defer></script>
     <script>
         window.addEventListener('load', function() {
@@ -63,6 +64,7 @@
         <div class="hero-section">
             <div style="max-width: 900px; margin: 0 auto; padding: 0 1rem;">
                 <h1 class="lcp-title" fetchpriority="high">¿Tu web trae <span>clientes</span> o solo facturas?</h1>
+                <p class="hero-sub">Hacemos webs que funcionan y te posicionan en Google con precios claros desde el primer día.</p>
                 <div style="height: 60px;"></div>
             </div>
         </div>
