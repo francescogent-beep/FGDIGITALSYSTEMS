@@ -4,30 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FG Digital Systems | Diseño Web y SEO para Pymes</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preconnect to external origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    
+    <!-- Optimized Font Loading -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    </noscript>
+
+    <!-- Critical CSS to prevent FOUC/CLS before Tailwind CDN loads -->
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        :root { --blue-600: #2563eb; --slate-900: #0f172a; }
+        body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f8fafc; opacity: 1; transition: opacity 0.2s; }
+        #root { min-height: 100vh; display: flex; flex-direction: column; }
+        .hero-title { font-size: 2.25rem; font-weight: 800; line-height: 1.2; color: var(--slate-900); }
+        @media (min-width: 768px) { .hero-title { font-size: 4.5rem; } }
+        .flex-grow { flex-grow: 1; }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
-    "vite": "https://esm.sh/vite@^7.3.1",
-    "react-router": "https://esm.sh/react-router@^7.12.0"
-  }
-}
-</script>
-<!-- Tally Embed Script -->
-<script async src="https://tally.so/widgets/embed.js"></script>
-<link rel="stylesheet" href="/index.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+        "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
+        "vite": "https://esm.sh/vite@^7.3.1",
+        "react-router": "https://esm.sh/react-router@^7.12.0"
+      }
+    }
+    </script>
+    <link rel="stylesheet" href="/index.css">
 </head>
 <body class="bg-slate-50 text-slate-900">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
+    <!-- Defer Tally to post-render -->
+    <script defer src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
