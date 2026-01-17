@@ -21,7 +21,6 @@ import {
   PhoneCall,
   Globe
 } from 'lucide-react';
-// Fix: Changed react-router-dom to react-router to resolve missing export errors.
 import { Link } from 'react-router';
 
 const Home: React.FC = () => {
@@ -36,7 +35,7 @@ const Home: React.FC = () => {
             <ShieldCheck size={16} className="text-blue-600" aria-hidden="true" />
             Resultados reales para negocios locales
           </div>
-          <h1 className="text-4xl md:text-7xl font-extrabold text-slate-900 leading-tight mb-6 text-balance tracking-tight">
+          <h1 className="hero-title font-extrabold text-slate-900 leading-tight mb-6 text-balance tracking-tight">
             ¿Tu web te trae <span className="text-blue-600">clientes</span> o solo facturas?
           </h1>
           <p className="text-lg md:text-2xl text-slate-600 mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed">
