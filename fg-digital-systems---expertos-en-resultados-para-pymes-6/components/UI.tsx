@@ -20,7 +20,7 @@ export const TallyModal: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-0 md:p-4 bg-slate-900/90 backdrop-blur-xl transition-all duration-300 animate-in fade-in">
-      <div className="bg-white w-full h-full md:h-auto md:max-w-2xl md:max-h-[90vh] md:rounded-[2.5rem] shadow-[0_32px_128px_-16px_rgba(37,99,235,0.25)] flex flex-col overflow-hidden relative border-none md:border md:border-slate-100">
+      <div className="bg-white w-full h-full md:h-[85vh] md:max-w-2xl md:max-h-[90vh] md:rounded-[2.5rem] shadow-[0_32px_128px_-16px_rgba(37,99,235,0.25)] flex flex-col overflow-hidden relative border-none md:border md:border-slate-100">
         
         {/* Brand Header */}
         <div className="px-6 py-4 md:px-10 md:py-6 border-b border-slate-50 flex items-center justify-between bg-white shrink-0">
@@ -41,12 +41,12 @@ export const TallyModal: React.FC = () => {
         </div>
 
         {/* Tally Iframe Container */}
-        <div className="flex-grow w-full relative bg-slate-50">
+        <div className="flex-grow w-full relative bg-slate-50 min-h-[400px]">
           <iframe 
             src="https://tally.so/embed/q4GKJO?hideTitle=1&transparentBackground=1&dynamicHeight=1" 
             width="100%" 
             height="100%" 
-            className="border-none"
+            className="absolute inset-0 border-none w-full h-full"
             title="Solicitar propuesta clara"
           />
         </div>
