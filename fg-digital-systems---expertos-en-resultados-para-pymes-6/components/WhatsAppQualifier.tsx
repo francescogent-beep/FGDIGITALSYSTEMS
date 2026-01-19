@@ -86,6 +86,12 @@ export const WhatsAppQualifier: React.FC = () => {
   const progress = ((step) / QUESTIONS.length) * 100;
 
   const handleSend = () => {
+    // Tracking event for Google Analytics
+    (window as any).gtag?.("event", "whatsapp_lead", {
+      method: "whatsapp_qualifier",
+      phone: WHATSAPP_PHONE
+    });
+
     const message = `Hola, he visto vuestra web.
 
 Necesito: ${answers.q1}
