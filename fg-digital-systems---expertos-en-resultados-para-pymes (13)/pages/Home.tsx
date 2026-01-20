@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Section, Button, PricingCard, FAQAccordion } from '../components/UI';
 import { SEO } from '../components/SEO';
 import { METADATA, CANONICAL_DOMAIN } from '../seo/metadata';
@@ -16,11 +16,23 @@ import {
   ArrowDown,
   PhoneCall,
   Globe,
-  Star
+  Star,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import { Link } from 'react-router';
 
 const Home: React.FC = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollTo = direction === 'left' ? scrollLeft - clientWidth : scrollLeft + clientWidth;
+      scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+    }
+  };
+
   const homeSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -257,34 +269,65 @@ const Home: React.FC = () => {
         </div>
       </Section>
 
-      {/* 5. REVIEWS */}
-      <Section className="bg-white py-12 md:py-24">
-        <div className="text-center mb-16">
+      {/* 5. REVIEWS CAROUSEL */}
+      <Section className="bg-white py-12 md:py-24 overflow-hidden">
+        <div className="text-center mb-16 px-4">
           <span className="text-blue-600 font-black uppercase tracking-widest text-xs mb-2 block">Opiniones Reales</span>
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">Historias de negocios como el tuyo</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">Más de 50 negocios ya han confiado en nuestro sistema para digitalizar su captación de clientes.</p>
+          <p className="text-slate-600 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">Muchos negocios ya han confiado en nuestro sistema para digitalizar su captación de clientes.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {REVIEWS.map((review, i) => (
-            <div key={i} className="p-8 rounded-3xl bg-slate-50 border border-slate-100 flex flex-col hover:shadow-xl transition-shadow duration-300 group">
-              <div className="flex gap-1 mb-6 text-blue-600">
-                {[...Array(review.stars)].map((_, j) => (
-                  <Star key={j} size={18} fill="currentColor" />
-                ))}
-              </div>
-              <p className="text-slate-700 italic mb-8 flex-grow leading-relaxed">"{review.text}"</p>
-              <div className="flex items-center gap-4 mt-auto">
-                <div className="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-blue-600 font-black text-lg shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
-                  {review.name.charAt(0)}
+        
+        <div className="relative group max-w-6xl mx-auto px-4">
+          {/* Controls */}
+          <div className="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2 z-10 hidden md:block">
+            <button 
+              onClick={() => scroll('left')}
+              className="p-3 bg-white border border-slate-200 rounded-full shadow-lg text-slate-400 hover:text-blue-600 hover:border-blue-600 transition-all active:scale-90"
+              aria-label="Ver opinión anterior"
+            >
+              <ChevronLeft size={24} />
+            </button>
+          </div>
+          <div className="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2 z-10 hidden md:block">
+            <button 
+              onClick={() => scroll('right')}
+              className="p-3 bg-white border border-slate-200 rounded-full shadow-lg text-slate-400 hover:text-blue-600 hover:border-blue-600 transition-all active:scale-90"
+              aria-label="Ver siguiente opinión"
+            >
+              <ChevronRight size={24} />
+            </button>
+          </div>
+
+          {/* Carousel Body */}
+          <div 
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8"
+          >
+            {REVIEWS.map((review, i) => (
+              <div 
+                key={i} 
+                className="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-start p-8 rounded-3xl bg-slate-50 border border-slate-100 flex flex-col hover:shadow-xl transition-shadow duration-300 group"
+              >
+                <div className="flex gap-1 mb-6 text-blue-600">
+                  {[...Array(review.stars)].map((_, j) => (
+                    <Star key={j} size={18} fill="currentColor" />
+                  ))}
                 </div>
-                <div>
-                  <p className="font-black text-slate-900 leading-tight">{review.name}</p>
-                  <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">{review.role}</p>
+                <p className="text-slate-700 italic mb-8 flex-grow leading-relaxed">"{review.text}"</p>
+                <div className="flex items-center gap-4 mt-auto">
+                  <div className="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-blue-600 font-black text-lg shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                    {review.name.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="font-black text-slate-900 leading-tight">{review.name}</p>
+                    <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">{review.role}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+
         <div className="mt-16 text-center">
           <p className="text-slate-400 font-bold text-xs uppercase tracking-widest mb-6">¿Quieres ser nuestro próximo caso de éxito?</p>
           <Button tallyId="q4GKJO" variant="primary" className="px-12 py-5">Solicitar Mi Propuesta</Button>
@@ -366,7 +409,7 @@ const Home: React.FC = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </Section>
     </main>
   );
 };
