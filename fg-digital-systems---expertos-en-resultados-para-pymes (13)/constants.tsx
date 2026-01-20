@@ -129,7 +129,7 @@ export const ADD_ONS = [
 export const RETAINERS = [
   {
     name: "Starter",
-    price: "90€/mes",
+    price: "120€/mes",
     desc: "Mantenimiento y SEO ligero.",
     features: ["1 artículos SEO / mes", "Mantenimiento Google Maps", "Enlazado interno", "Informe mensual claro"]
   },
