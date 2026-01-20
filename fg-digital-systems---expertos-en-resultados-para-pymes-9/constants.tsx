@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Layout, Search, MessageSquareMore, Settings, ShieldCheck, Zap, TrendingUp, Users, PhoneCall, Globe, CreditCard, Lock, UserCheck, Clock, CheckCircle2 } from 'lucide-react';
 import { PricingPlan, CaseStudyExample, FAQItem, BlogPost } from './types.ts';
@@ -17,7 +16,7 @@ export const ROUTES = [
 export const REVIEWS = [
   {
     name: "Jordi G.",
-    role: "Dueño de Clínica de Fisioterapia",
+    role: "Autónomo",
     text: "Teníamos una web que no servía para nada. Con el Pack Crecimiento ahora el 70% de nuestras citas nuevas entran directamente por WhatsApp. Inversión recuperada en el primer mes.",
     stars: 5
   },
@@ -31,6 +30,24 @@ export const REVIEWS = [
     name: "Carlos T.",
     role: "Autónomo de Reformas",
     text: "Buscaba algo rápido y que no me diera problemas. En 10 días tenía la web funcionando y ya he cerrado dos presupuestos gracias a ella. Claridad total en el precio.",
+    stars: 5
+  },
+  {
+    name: "Marta S.",
+    role: "Psicóloga Online",
+    text: "No sabía cómo empezar en el mundo online. El Pack Starter me dio la profesionalidad que necesitaba y en muy poco tiempo ya estaba recibiendo solicitudes de terapia desde Google.",
+    stars: 5
+  },
+  {
+    name: "Pablo R.",
+    role: "Dueño de Taller Mecánico",
+    text: "Increíble lo de aparecer en Maps. Antes solo nos conocían en el barrio, ahora viene gente de toda la ciudad porque aparecemos los primeros en la zona. Trato excelente.",
+    stars: 5
+  },
+  {
+    name: "Lucía V.",
+    role: "Directora Centro de Estética",
+    text: "Buscaba algo limpio y rápido. FG Digital Systems me entendió a la primera. Mi web carga al instante y el botón de WhatsApp es una mina de oro para mis reservas diarias.",
     stars: 5
   }
 ];
@@ -448,9 +465,9 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>Usa palabras clave en estas respuestas: "Sí, somos el mejor dentista en Murcia para implantes sin dolor".</p>
 
       <h3>4. Google Posts: Noticiario Semanal</h3>
-      <p>Usa la sección de publicaciones para anunciar ofertas, eventos o nuevos servicios.</p>
-      <p><strong>Las publicaciones caducan, lo que obliga a Google a volver a rastrear tu ficha con frecuencia.</strong></p>
-      <p>Esto mantiene tu perfil "fresco" y activo, algo que el algoritmo premia con mejores posiciones.</p>
+      <p>Usa la sección de novedades de Google Business como si fuera una red social.</p>
+      <p><strong>Publicar una foto de un trabajo recién terminado o una oferta semanal envía señales de "actividad" constantes.</strong></p>
+      <p>Google premia a los negocios que demuestran estar operativos y actualizados.</p>
 
       <h3>5. El Impacto de la Interacción del Usuario</h3>
       <p>Google mide el CTR (Click Through Rate): cuánta gente pulsa en "Cómo llegar" o en tu botón de llamada.</p>
