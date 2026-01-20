@@ -1,4 +1,4 @@
-import React from 'react';
+React from 'react';
 import { Section, Button, PricingCard, FAQAccordion } from '../components/UI';
 import { SEO } from '../components/SEO';
 import { METADATA, CANONICAL_DOMAIN } from '../seo/metadata';
@@ -15,7 +15,8 @@ import {
   MousePointerClick,
   ArrowDown,
   PhoneCall,
-  Globe
+  Globe,
+  Star
 } from 'lucide-react';
 import { Link } from 'react-router';
 
@@ -256,8 +257,42 @@ const Home: React.FC = () => {
         </div>
       </Section>
 
-      {/* 5. RESULTS */}
-      <Section className="bg-white py-12 md:py-20 border-t border-slate-100">
+      {/* 5. REVIEWS */}
+      <Section className="bg-white py-12 md:py-24">
+        <div className="text-center mb-16">
+          <span className="text-blue-600 font-black uppercase tracking-widest text-xs mb-2 block">Opiniones Reales</span>
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">Historias de negocios como el tuyo</h2>
+          <p className="text-slate-600 max-w-2xl mx-auto">Más de 50 negocios ya han confiado en nuestro sistema para digitalizar su captación de clientes.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {REVIEWS.map((review, i) => (
+            <div key={i} className="p-8 rounded-3xl bg-slate-50 border border-slate-100 flex flex-col hover:shadow-xl transition-shadow duration-300 group">
+              <div className="flex gap-1 mb-6 text-blue-600">
+                {[...Array(review.stars)].map((_, j) => (
+                  <Star key={j} size={18} fill="currentColor" />
+                ))}
+              </div>
+              <p className="text-slate-700 italic mb-8 flex-grow leading-relaxed">"{review.text}"</p>
+              <div className="flex items-center gap-4 mt-auto">
+                <div className="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-blue-600 font-black text-lg shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                  {review.name.charAt(0)}
+                </div>
+                <div>
+                  <p className="font-black text-slate-900 leading-tight">{review.name}</p>
+                  <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">{review.role}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-16 text-center">
+          <p className="text-slate-400 font-bold text-xs uppercase tracking-widest mb-6">¿Quieres ser nuestro próximo caso de éxito?</p>
+          <Button tallyId="q4GKJO" variant="primary" className="px-12 py-5">Solicitar Mi Propuesta</Button>
+        </div>
+      </Section>
+
+      {/* 6. RESULTS */}
+      <Section className="bg-slate-50 py-12 md:py-20 border-y border-slate-200">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <span className="text-blue-600 font-black uppercase tracking-widest text-[10px] mb-2 block">Directo al grano</span>
@@ -266,7 +301,7 @@ const Home: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center text-center p-6 bg-slate-50 rounded-3xl border border-slate-100">
+            <div className="flex flex-col items-center text-center p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
               <div className="bg-blue-600 text-white p-4 rounded-2xl mb-6 shadow-lg shadow-blue-500/20">
                 <PhoneCall size={32} aria-hidden="true" />
               </div>
@@ -275,7 +310,7 @@ const Home: React.FC = () => {
                 Tu teléfono sonará más a menudo. Optimizamos cada rincón de la web para que las visitas se conviertan en llamadas y mensajes de WhatsApp.
               </p>
             </div>
-            <div className="flex flex-col items-center text-center p-6 bg-slate-50 rounded-3xl border border-slate-100">
+            <div className="flex flex-col items-center text-center p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
               <div className="bg-blue-600 text-white p-4 rounded-2xl mb-6 shadow-lg shadow-blue-500/20">
                 <Globe size={32} aria-hidden="true" />
               </div>
@@ -284,7 +319,7 @@ const Home: React.FC = () => {
                 Aparecerás cuando tus vecinos busquen tus servicios cerca de ti. No hace falta que estén en tu puerta para que sepan que eres la mejor opción.
               </p>
             </div>
-            <div className="flex flex-col items-center text-center p-6 bg-slate-50 rounded-3xl border border-slate-100">
+            <div className="flex flex-col items-center text-center p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
               <div className="bg-blue-600 text-white p-4 rounded-2xl mb-6 shadow-lg shadow-blue-500/20">
                 <Zap size={32} aria-hidden="true" />
               </div>
@@ -297,8 +332,8 @@ const Home: React.FC = () => {
         </div>
       </Section>
 
-      {/* 6. FAQ */}
-      <Section className="bg-slate-50 py-12 md:py-24">
+      {/* 7. FAQ */}
+      <Section className="bg-white py-12 md:py-24">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">¿Dudas? Resolvemos las más comunes</h2>
@@ -317,8 +352,8 @@ const Home: React.FC = () => {
         </div>
       </Section>
 
-      {/* 7. FINAL CTA */}
-      <Section className="py-20 text-center bg-white">
+      {/* 8. FINAL CTA */}
+      <Section className="py-20 text-center bg-slate-50">
         <div className="max-w-4xl mx-auto bg-slate-900 text-white p-8 md:p-20 rounded-[3rem] shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-2 bg-blue-600"></div>
           <h2 className="text-3xl md:text-6xl font-black mb-6 leading-tight">¿Hablamos de cómo <br/> traer más clientes?</h2>
