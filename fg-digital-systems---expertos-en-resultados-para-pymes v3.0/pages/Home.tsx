@@ -24,14 +24,13 @@ const Home: React.FC = () => {
     "logo": "https://i.imgur.com/ILoCkO3.png"
   };
 
-  // URL de imagen optimizada al máximo (600px es suficiente para móvil)
-  const LCP_IMAGE = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?fm=webp&fit=crop&q=50&w=600";
+  // URL optimizada que coincide exactamente con el preload del head
+  const LCP_IMAGE = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?fm=webp&fit=crop&q=40&w=500";
 
   return (
     <main>
       <SEO {...METADATA.home} schema={homeSchema} />
       
-      {/* 1. HERO - Estructura limpia para evitar TBT */}
       <section className="bg-white pt-10 md:pt-20 pb-12 md:pb-24 border-b border-slate-50">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 text-blue-900 rounded-full text-[10px] md:text-sm font-black mb-6 border border-blue-100 uppercase tracking-widest">
@@ -42,7 +41,7 @@ const Home: React.FC = () => {
             Diseño Web y SEO que atrae <span className="text-blue-600">clientes</span>
           </h1>
           <p className="text-lg md:text-2xl text-slate-800 max-w-2xl mx-auto mb-10 leading-relaxed font-semibold">
-           Creamos sistemas web pensados para que tu <strong>teléfono suene y entren contactos reales</strong>.
+           Sistemas web para Pymes pensados para que tu <strong>teléfono suene y entren contactos reales</strong>.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button tallyId="q4GKJO" variant="primary" className="px-10 py-5 text-lg shadow-2xl shadow-blue-500/30">
@@ -60,7 +59,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. PROBLEMS & SOLUTIONS */}
       <Section className="bg-slate-50 border-y border-slate-100 py-16 md:py-32">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
@@ -109,7 +107,6 @@ const Home: React.FC = () => {
         </div>
       </Section>
 
-      {/* 5. IMAGE STRATEGY - REDUCCIÓN AGRESIVA DE PESO (LCP) */}
       <Section className="bg-white py-16 md:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative">
@@ -117,8 +114,8 @@ const Home: React.FC = () => {
               src={LCP_IMAGE} 
               alt="Diseño web optimizado para Pymes" 
               className="rounded-[3rem] shadow-2xl w-full h-auto bg-slate-100"
-              width="600"
-              height="400"
+              width="500"
+              height="320"
               loading="eager"
               fetchPriority="high"
               decoding="async"
