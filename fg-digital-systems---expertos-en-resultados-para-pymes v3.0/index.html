@@ -6,26 +6,26 @@
     <title>Diseño Web y SEO para Pymes | FG Digital Systems</title>
     <meta name="description" content="Diseño web y SEO local para Pymes. Sistemas web que atraen clientes y aumentan ventas sin cuotas mensuales.">
     
-    <!-- 1. PRECARGA LCP (URL exacta optimizada para móvil) -->
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1460925895917-afdab827c52f?fm=webp&fit=crop&q=60&w=640" fetchpriority="high">
+    <!-- 1. PRECARGA LCP (Sin esta línea el LCP nunca bajará de 3s) -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1460925895917-afdab827c52f?fm=webp&fit=crop&q=50&w=600" fetchpriority="high">
 
-    <!-- 2. CSS CRÍTICO (Renderizado en < 1s) -->
+    <!-- 2. CSS CRÍTICO NATIVO (Estila el HTML antes de que Tailwind cargue) -->
     <style>
-      :root { --blue: #2563eb; --slate-900: #0f172a; --slate-600: #475569; --white: #ffffff; }
-      body { margin: 0; font-family: system-ui, -apple-system, sans-serif; background: #fff; -webkit-font-smoothing: antialiased; }
-      .nav-shell { height: 64px; background: #fff; border-bottom: 1px solid #e2e8f0; }
-      .hero-shell { padding: 40px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; }
-      .tag-shell { background: #eff6ff; color: #1e40af; padding: 6px 16px; border-radius: 99px; font-size: 12px; font-weight: 700; margin-bottom: 24px; border: 1px solid #dbeafe; text-transform: uppercase; letter-spacing: 1px; }
-      .h1-shell { font-size: 40px; font-weight: 900; color: var(--slate-900); line-height: 1.1; margin: 0 0 24px; letter-spacing: -1px; max-width: 800px; }
-      @media (min-width: 768px) { .h1-shell { font-size: 72px; padding-top: 40px; } }
-      .p-shell { color: var(--slate-600); font-size: 18px; line-height: 1.5; margin-bottom: 40px; max-width: 600px; }
-      .btn-shell { height: 64px; width: 280px; background: var(--blue); border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.2); }
-      #root { opacity: 0; }
-      .hydrated #root { opacity: 1; transition: opacity 0.3s ease-in; }
-      .hydrated #instant-shell { display: none; }
+      :root { --b: #2563eb; --d: #0f172a; --g: #475569; }
+      body { margin: 0; font-family: -apple-system, system-ui, sans-serif; background: #fff; color: var(--d); overflow-x: hidden; }
+      header { height: 64px; background: #fff; border-bottom: 1px solid #eee; }
+      .hero-fast { padding: 40px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; min-height: 80vh; justify-content: center; }
+      .h1-fast { font-size: 2.5rem; font-weight: 900; margin: 0 0 20px; line-height: 1.1; letter-spacing: -1px; max-width: 900px; }
+      @media (min-width: 768px) { .h1-fast { font-size: 4.5rem; } }
+      .p-fast { font-size: 1.1rem; color: var(--g); line-height: 1.6; margin-bottom: 30px; max-width: 600px; font-weight: 500; }
+      .btn-fast { height: 60px; width: 280px; background: var(--b); border-radius: 12px; border: none; box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3); }
+      .blue-t { color: var(--b); }
+      #root { display: block !important; opacity: 1 !important; }
+      /* Evitar saltos de layout del Hero */
+      .hero-placeholder { aspect-ratio: 16/9; width: 100%; max-width: 600px; background: #f3f4f6; border-radius: 24px; margin-top: 40px; }
     </style>
 
-    <!-- 3. CARGA DIFERIDA DE TAILWIND (No bloquea el render inicial) -->
+    <!-- 3. TAILWIND (Carga no bloqueante) -->
     <script src="https://cdn.tailwindcss.com" defer></script>
     <script>
       window.tailwindConfig = {
@@ -38,16 +38,22 @@
       };
     </script>
 
-    <!-- 4. GTM DE BAJA PRIORIDAD (Carga después de 4s para no afectar TBT) -->
+    <!-- 4. GTM ULTRA-LAZY (Libera el Main Thread del móvil) -->
     <script>
-      setTimeout(() => {
+      function loadAnalytics() {
+        if (window.gtmInitialized) return;
+        window.gtmInitialized = true;
         const s = document.createElement('script');
         s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=G-T6JS6Z27GG";
         document.head.appendChild(s);
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date()); gtag('config', 'G-T6JS6Z27GG');
-      }, 4000);
+      }
+      // Solo carga cuando el usuario realmente interactúa
+      window.addEventListener('scroll', loadAnalytics, {once: true});
+      window.addEventListener('touchstart', loadAnalytics, {once: true});
+      setTimeout(loadAnalytics, 5000); 
     </script>
 
     <script type="importmap">
@@ -65,25 +71,16 @@
     </script>
 </head>
 <body>
-    <!-- 5. INSTANT UI: Esto es lo que Google ve primero -->
-    <div id="instant-shell">
-        <div class="nav-shell"></div>
-        <div class="hero-shell">
-            <div class="tag-shell">Diseño Web y SEO Local para Pymes</div>
-            <h1 class="h1-shell">Diseño Web y SEO que atrae <span style="color:var(--blue)">clientes</span></h1>
-            <p class="p-shell">Creamos sistemas web pensados para que tu teléfono suene y entren contactos reales.</p>
-            <div class="btn-shell"></div>
-        </div>
+    <div id="root">
+        <!-- Skeleton estático: Se pisa automáticamente cuando React carga -->
+        <header></header>
+        <main class="hero-fast">
+            <h1 class="h1-fast">Diseño Web y SEO que atrae <span class="blue-t">clientes</span></h1>
+            <p class="p-fast">Sistemas web para Pymes pensados para que tu teléfono suene y entren contactos reales.</p>
+            <div class="btn-fast"></div>
+            <div class="hero-placeholder"></div>
+        </main>
     </div>
-
-    <div id="root"></div>
-
-    <script type="module">
-        // Notificar hidratación
-        window.addEventListener('load', () => {
-            setTimeout(() => document.body.classList.add('hydrated'), 100);
-        });
-    </script>
     <script type="module" src="/index.tsx"></script>
 </body>
 </html>
