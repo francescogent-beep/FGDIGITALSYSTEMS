@@ -24,8 +24,8 @@ const Home: React.FC = () => {
     "logo": "https://i.imgur.com/ILoCkO3.png"
   };
 
-  // URL optimizada que coincide exactamente con el preload del head
-  const LCP_IMAGE = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?fm=webp&fit=crop&q=40&w=500";
+  // URL idéntica a la del head (400px es el ancho ideal para móvil)
+  const LCP_IMAGE = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?fm=webp&fit=crop&q=45&w=400";
 
   return (
     <main>
@@ -114,8 +114,8 @@ const Home: React.FC = () => {
               src={LCP_IMAGE} 
               alt="Diseño web optimizado para Pymes" 
               className="rounded-[3rem] shadow-2xl w-full h-auto bg-slate-100"
-              width="500"
-              height="320"
+              width="400"
+              height="300"
               loading="eager"
               fetchPriority="high"
               decoding="async"
