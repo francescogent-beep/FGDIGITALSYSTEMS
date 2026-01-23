@@ -1,64 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T6JS6Z27GG"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-T6JS6Z27GG');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diseño Web y SEO para Pymes | FG Digital Systems</title>
     <meta name="description" content="Diseño web y SEO local para Pymes. Creamos sistemas web que atraen clientes y aumentan las ventas sin cuotas mensuales ni tecnicismos en Murcia y España.">
     
-    <!-- 1. DNS & Preconnect -->
+    <!-- 1. Preconexiones Críticas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="dns-prefetch" href="https://images.unsplash.com">
-    
-    <!-- 2. Optimized Font Loading -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" media="print" onload="this.media='all'">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 
-    <!-- 3. Tailwind CDN for Instant Styling -->
+    <!-- 2. CSS CRÍTICO (Inline para PageSpeed 90+) -->
+    <style>
+      :root { --blue-600: #2563eb; --slate-900: #0f172a; --slate-700: #334155; --slate-50: #f8fafc; --white: #ffffff; }
+      body { margin: 0; font-family: 'Inter', system-ui, sans-serif; background: var(--slate-50); -webkit-font-smoothing: antialiased; }
+      .nav-skeleton { height: 64px; background: rgba(255,255,255,0.9); border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 50; }
+      .hero-skeleton { padding: 2rem 1rem; text-align: center; background: var(--white); min-height: 40vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+      .title-skeleton { font-size: 2.25rem; font-weight: 800; color: var(--slate-900); margin-bottom: 1rem; line-height: 1.1; max-width: 800px; letter-spacing: -0.025em; }
+      @media (min-width: 768px) { .title-skeleton { font-size: 4.5rem; padding-top: 1rem; } }
+      .sub-skeleton { color: var(--slate-700); font-size: 1.125rem; max-width: 650px; line-height: 1.5; margin-bottom: 2rem; }
+      .btn-skeleton { height: 58px; width: 260px; background: var(--blue-600); border-radius: 1rem; }
+    </style>
+
+    <!-- 3. Tailwind Engine (Configuración optimizada) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
-            fontFamily: {
-              sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
-            },
+            fontFamily: { sans: ['Inter', 'sans-serif'] },
             colors: {
-              blue: {
-                50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa',
-                500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a',
-              },
-            },
-          },
-        },
+              blue: { 50: '#f0f9ff', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a', 950: '#0a192f' },
+              slate: { 700: '#334155', 800: '#1e293b', 900: '#0f172a' }
+            }
+          }
+        }
       }
     </script>
 
-    <!-- 4. Critical CSS for LCP -->
-    <style>
-      :root { --blue-600: #2563eb; --slate-900: #0f172a; --slate-700: #334155; --slate-600: #475569; --slate-50: #f8fafc; }
-      body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: var(--slate-50); color: var(--slate-900); -webkit-font-smoothing: antialiased; }
-      #root { min-height: 100vh; display: flex; flex-direction: column; }
-      .hero-section { min-height: 60vh; display: flex; align-items: center; justify-content: center; background: #fff; text-align: center; padding: 5rem 1rem; }
-      .lcp-title { font-size: 2.5rem; font-weight: 800; line-height: 1.1; color: var(--slate-900); margin-bottom: 1.5rem; letter-spacing: -0.025em; max-width: 900px; margin-left: auto; margin-right: auto; }
-      @media (min-width: 768px) { .lcp-title { font-size: 4.5rem; } }
-      .lcp-title span { color: var(--blue-600); }
-      .hero-sub { color: var(--slate-600); font-size: 1.125rem; max-width: 650px; margin: 0 auto 2.5rem; line-height: 1.6; }
-      @media (min-width: 768px) { .hero-sub { font-size: 1.5rem; } }
-      .navbar-placeholder { height: 64px; background: white; border-bottom: 1px solid #e2e8f0; width: 100%; position: sticky; top: 0; z-index: 50; }
-      .btn-stub { display: inline-flex; height: 60px; width: 280px; background: var(--blue-600); border-radius: 1rem; margin: 0.5rem; }
-    </style>
+    <!-- 4. Scripts No Bloqueantes -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T6JS6Z27GG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-T6JS6Z27GG', { 'page_path': window.location.pathname });
+    </script>
 
     <script type="importmap">
     {
@@ -73,23 +62,16 @@
       }
     }
     </script>
-<link rel="stylesheet" href="/index.css">
 </head>
 <body>
     <div id="root">
-        <div class="navbar-placeholder"></div>
-        <main class="hero-section">
-            <div style="max-width: 900px; margin: 0 auto; padding: 0 1rem;">
-                <h1 class="lcp-title">Diseño Web y SEO que atrae <span>clientes</span></h1>
-                <p class="hero-sub">Creamos sistemas web para Pymes que funcionan y te posicionan en Google con precios claros.</p>
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-                    <div class="btn-stub"></div>
-                    <div class="btn-stub" style="background: transparent; border: 2px solid #e2e8f0;"></div>
-                </div>
-            </div>
+        <nav class="nav-skeleton"></nav>
+        <main class="hero-skeleton">
+            <div class="title-skeleton">Diseño Web y SEO que atrae <span style="color:var(--blue-600)">clientes</span></div>
+            <div class="sub-skeleton">Creamos sistemas web para Pymes que funcionan y te posicionan en Google.</div>
+            <div class="btn-skeleton"></div>
         </main>
     </div>
-    <script type="module" src="/index.tsx" defer></script>
-<script type="module" src="/index.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
