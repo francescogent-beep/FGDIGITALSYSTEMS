@@ -180,7 +180,7 @@ export const PricingCard: React.FC<{
       <p className="text-slate-900 text-sm md:text-base mb-10 min-h-[56px] leading-relaxed font-black">{plan.description}</p>
       
       <div className="bg-slate-50 p-5 rounded-2xl mb-10 flex items-center gap-4 border border-slate-100 group-hover:bg-blue-50 transition-colors">
-         <div className="bg-white text-green-700 p-2 rounded-xl shadow-sm border border-slate-100">
+         <div className="bg-white text-green-700 p-2 rounded-xl shadow-sm border border-slate-200">
             <ShieldCheck size={20} />
          </div>
          <div>
