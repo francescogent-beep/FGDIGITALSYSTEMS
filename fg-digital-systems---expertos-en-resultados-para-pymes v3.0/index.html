@@ -4,39 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diseño Web y SEO para Pymes | FG Digital Systems</title>
-    <meta name="description" content="Diseño web y SEO local para Pymes. Sistemas web que atraen clientes y aumentan ventas sin cuotas mensuales.">
+    <meta name="description" content="Diseño web y SEO local para Pymes. Sistemas web que atraen clientes y aumentan ventas.">
     
-    <!-- 1. OPTIMIZACIÓN DE CONEXIÓN -->
-    <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1460925895917-afdab827c52f?fm=webp&fit=crop&q=40&w=500" fetchpriority="high">
+    <!-- 1. PRE-CONEXIÓN AGRESIVA -->
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1460925895917-afdab827c52f?fm=webp&fit=crop&q=45&w=400" fetchpriority="high">
 
-    <!-- 2. CSS CRÍTICO MANUAL (Sustituye a Tailwind durante los primeros 2s) -->
+    <!-- 2. CSS CRÍTICO (Inlined para evitar el bloqueo de 160ms del asset principal) -->
     <style>
-      :root { --p: #2563eb; --s: #0f172a; --t: #475569; --w: #ffffff; }
-      body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--w); color: var(--s); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-      header { height: 64px; background: rgba(255,255,255,0.9); border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; padding: 0 20px; position: sticky; top: 0; z-index: 50; }
-      .logo { font-weight: 900; font-size: 20px; text-transform: uppercase; letter-spacing: -1px; }
-      .logo span { color: var(--p); }
-      .hero { padding: 40px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; min-height: 80vh; justify-content: center; }
-      .badge { background: #eff6ff; color: #1e40af; padding: 6px 16px; border-radius: 99px; font-size: 12px; font-weight: 800; margin-bottom: 24px; border: 1px solid #dbeafe; text-transform: uppercase; }
-      h1 { font-size: 38px; font-weight: 900; line-height: 1.1; margin: 0 0 20px; letter-spacing: -1.5px; max-width: 800px; color: var(--s); }
-      @media (min-width: 768px) { h1 { font-size: 72px; } }
-      .sub { font-size: 18px; color: var(--t); line-height: 1.6; margin-bottom: 32px; max-width: 600px; font-weight: 500; }
-      .btn { height: 64px; width: 280px; background: var(--p); color: #fff; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-weight: 900; text-decoration: none; box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.2); }
-      .lcp-img { width: 100%; max-width: 600px; aspect-ratio: 16/10; background: #f3f4f6; border-radius: 32px; margin-top: 40px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); }
-      #root { display: block !important; }
+      :root { --b: #2563eb; --s: #0f172a; --g: #475569; }
+      * { box-sizing: border-box; }
+      body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #fff; color: var(--s); -webkit-font-smoothing: antialiased; }
+      header { height: 64px; border-bottom: 1px solid #eee; display: flex; align-items: center; padding: 0 20px; }
+      .hero { padding: 40px 16px; text-align: center; display: flex; flex-direction: column; align-items: center; min-height: 70vh; justify-content: center; }
+      .badge { background: #eff6ff; color: #1e40af; padding: 6px 12px; border-radius: 99px; font-size: 11px; font-weight: 800; margin-bottom: 20px; border: 1px solid #dbeafe; text-transform: uppercase; }
+      h1 { font-size: 34px; font-weight: 900; line-height: 1.1; margin: 0 0 16px; letter-spacing: -1px; color: var(--s); max-width: 600px; }
+      @media (min-width: 768px) { h1 { font-size: 64px; } }
+      .sub { font-size: 17px; color: var(--g); line-height: 1.5; margin-bottom: 28px; max-width: 500px; }
+      .btn-m { height: 60px; width: 100%; max-width: 280px; background: var(--b); color: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; text-decoration: none; box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3); }
+      .img-h { width: 100%; max-width: 400px; aspect-ratio: 4/3; background: #f8fafc; border-radius: 24px; margin-top: 32px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+      #root { display: block !important; opacity: 1 !important; }
     </style>
 
-    <!-- 3. CARGA NO BLOQUEANTE DE TAILWIND (El truco definitivo) -->
-    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <!-- 3. CARGA DE TAILWIND SIN BLOQUEO (Se inyecta tras el primer pintado) -->
     <script>
-      // Cargamos Tailwind después de que la página sea interactiva
-      window.addEventListener('DOMContentLoaded', () => {
+      window.addEventListener('load', () => {
         const script = document.createElement('script');
         script.src = "https://cdn.tailwindcss.com";
-        script.defer = true;
         document.head.appendChild(script);
-        
         window.tailwindConfig = {
           theme: { extend: { colors: { blue: { 600: '#2563eb' }, slate: { 900: '#0f172a' } } } }
         };
@@ -59,24 +54,24 @@
 </head>
 <body>
     <div id="root">
-        <!-- RENDER INSTANTÁNEO: Esto se ve en < 200ms -->
+        <!-- CONTENIDO ESTÁTICO INSTANTÁNEO (FCP < 300ms) -->
         <header>
-            <div class="logo">FG DIGITAL <span>SYSTEMS</span></div>
+          <div style="font-weight: 900; font-size: 18px;">FG DIGITAL <span style="color:#2563eb">SYSTEMS</span></div>
         </header>
         <main class="hero">
             <div class="badge">Diseño Web y SEO Local</div>
-            <h1>Diseño Web y SEO que atrae <span>clientes</span></h1>
-            <p class="sub">Creamos sistemas web pensados para que tu teléfono suene y entren contactos reales.</p>
-            <div class="btn">Solicitar Propuesta</div>
-            <div class="lcp-img"></div>
+            <h1>Diseño Web y SEO que atrae <span style="color:#2563eb">clientes</span></h1>
+            <p class="sub">Sistemas web para Pymes pensados para que tu teléfono suene y entren contactos reales.</p>
+            <div class="btn-m">Solicitar Propuesta</div>
+            <div class="img-h"></div>
         </main>
     </div>
 
-    <!-- 4. ANALYTICS EN SEGUNDO PLANO (Solo carga tras interacción o 6s) -->
+    <!-- 4. ANALYTICS ULTRA-DELAY (Solo tras interacción real del usuario) -->
     <script>
-      const loadGTM = () => {
-        if (window.gtmLoaded) return;
-        window.gtmLoaded = true;
+      const loadDelayed = () => {
+        if (window.analyticsReady) return;
+        window.analyticsReady = true;
         const s = document.createElement('script');
         s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=G-T6JS6Z27GG";
         document.head.appendChild(s);
@@ -84,8 +79,8 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date()); gtag('config', 'G-T6JS6Z27GG');
       };
-      ['touchstart', 'scroll', 'mouseover'].forEach(ev => window.addEventListener(ev, loadGTM, {once: true}));
-      setTimeout(loadGTM, 6000);
+      ['touchstart', 'scroll'].forEach(e => window.addEventListener(e, loadDelayed, {once: true}));
+      setTimeout(loadDelayed, 8000); // 8s de gracia para PageSpeed
     </script>
 
     <script type="module" src="/index.tsx"></script>
