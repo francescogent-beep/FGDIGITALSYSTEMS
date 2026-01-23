@@ -6,7 +6,7 @@ interface SEOProps extends PageMetadata {
 }
 
 export const SEO: React.FC<SEOProps> = ({ title, description, keywords, path, ogType = 'website', ogImage, schema }) => {
-  const DEFAULT_IMAGE = '/og-image.png';
+  const DEFAULT_IMAGE = 'https://i.imgur.com/rYq5wTX.png';
   const rawOgImage = ogImage || DEFAULT_IMAGE;
   
   // Construct absolute URL for the image
