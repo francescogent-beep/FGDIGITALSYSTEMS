@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { PageMetadata, CANONICAL_DOMAIN } from '../seo/metadata.ts';
 
@@ -7,6 +6,14 @@ interface SEOProps extends PageMetadata {
 }
 
 export const SEO: React.FC<SEOProps> = ({ title, description, keywords, path, ogType = 'website', ogImage, schema }) => {
+  const DEFAULT_IMAGE = '/og-image.png';
+  const rawOgImage = ogImage || DEFAULT_IMAGE;
+  
+  // Construct absolute URL for the image
+  const finalOgImage = rawOgImage.startsWith('http') 
+    ? rawOgImage 
+    : `${CANONICAL_DOMAIN}${rawOgImage.startsWith('/') ? rawOgImage : `/${rawOgImage}`}`;
+
   useEffect(() => {
     document.title = title;
     
@@ -46,15 +53,15 @@ export const SEO: React.FC<SEOProps> = ({ title, description, keywords, path, og
     updateMeta('og:description', description, 'property');
     updateMeta('og:url', canonicalUrl, 'property');
     updateMeta('og:type', ogType, 'property');
-    if (ogImage) updateMeta('og:image', ogImage, 'property');
+    updateMeta('og:image', finalOgImage, 'property');
 
     // Twitter
     updateMeta('twitter:card', 'summary_large_image');
     updateMeta('twitter:title', title);
     updateMeta('twitter:description', description);
-    if (ogImage) updateMeta('twitter:image', ogImage);
+    updateMeta('twitter:image', finalOgImage);
 
-  }, [title, description, keywords, path, ogType, ogImage]);
+  }, [title, description, keywords, path, ogType, finalOgImage]);
 
   return (
     <>
