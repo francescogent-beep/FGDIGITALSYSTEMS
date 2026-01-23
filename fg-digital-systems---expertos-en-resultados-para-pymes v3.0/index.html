@@ -4,62 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diseño Web y SEO para Pymes | FG Digital Systems</title>
-    <meta name="description" content="Diseño web y SEO local para Pymes. Creamos sistemas web que atraen clientes y aumentan las ventas sin cuotas mensuales ni tecnicismos en Murcia y España.">
+    <meta name="description" content="Diseño web y SEO local para Pymes. Sistemas web que atraen clientes y aumentan ventas sin cuotas mensuales.">
     
-    <!-- 1. Preload de Recurso LCP (Imagen Crítica) -->
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1460925895917-afdab827c52f?fm=webp&fit=crop&q=60&w=600" fetchpriority="high">
+    <!-- 1. PRECARGA LCP (URL exacta optimizada para móvil) -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1460925895917-afdab827c52f?fm=webp&fit=crop&q=60&w=640" fetchpriority="high">
 
-    <!-- 2. Optimización de Conexiones -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-    <!-- 3. CSS CRÍTICO (Pintura instantánea sin depender de Tailwind/React) -->
+    <!-- 2. CSS CRÍTICO (Renderizado en < 1s) -->
     <style>
-      :root { --blue-600: #2563eb; --slate-900: #0f172a; --slate-700: #334155; --white: #ffffff; }
-      body { margin: 0; font-family: 'Inter', system-ui, sans-serif; background: #f8fafc; -webkit-font-smoothing: antialiased; }
-      .nav-fixed { height: 64px; background: rgba(255,255,255,0.9); border-bottom: 1px solid #e2e8f0; position: fixed; top: 0; width: 100%; z-index: 100; }
-      .hero-fast { padding-top: 100px; padding-bottom: 40px; text-align: center; background: var(--white); display: flex; flex-direction: column; align-items: center; px: 20px; }
-      .title-fast { font-size: 2.25rem; font-weight: 800; color: var(--slate-900); margin-bottom: 1rem; line-height: 1.1; max-width: 90%; letter-spacing: -0.025em; }
-      @media (min-width: 768px) { .title-fast { font-size: 4.5rem; } }
-      .sub-fast { color: var(--slate-700); font-size: 1.1rem; max-width: 600px; line-height: 1.5; margin: 0 auto 2rem; padding: 0 20px; }
-      .btn-fast { height: 58px; width: 260px; background: var(--blue-600); border-radius: 1rem; border: none; }
-      #root { opacity: 0; transition: opacity 0.2s ease-in; }
-      #root.loaded { opacity: 1; }
+      :root { --blue: #2563eb; --slate-900: #0f172a; --slate-600: #475569; --white: #ffffff; }
+      body { margin: 0; font-family: system-ui, -apple-system, sans-serif; background: #fff; -webkit-font-smoothing: antialiased; }
+      .nav-shell { height: 64px; background: #fff; border-bottom: 1px solid #e2e8f0; }
+      .hero-shell { padding: 40px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+      .tag-shell { background: #eff6ff; color: #1e40af; padding: 6px 16px; border-radius: 99px; font-size: 12px; font-weight: 700; margin-bottom: 24px; border: 1px solid #dbeafe; text-transform: uppercase; letter-spacing: 1px; }
+      .h1-shell { font-size: 40px; font-weight: 900; color: var(--slate-900); line-height: 1.1; margin: 0 0 24px; letter-spacing: -1px; max-width: 800px; }
+      @media (min-width: 768px) { .h1-shell { font-size: 72px; padding-top: 40px; } }
+      .p-shell { color: var(--slate-600); font-size: 18px; line-height: 1.5; margin-bottom: 40px; max-width: 600px; }
+      .btn-shell { height: 64px; width: 280px; background: var(--blue); border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.2); }
+      #root { opacity: 0; }
+      .hydrated #root { opacity: 1; transition: opacity 0.3s ease-in; }
+      .hydrated #instant-shell { display: none; }
     </style>
 
-    <!-- 4. Tailwind Engine (Carga diferida para no bloquear el FCP) -->
+    <!-- 3. CARGA DIFERIDA DE TAILWIND (No bloquea el render inicial) -->
     <script src="https://cdn.tailwindcss.com" defer></script>
     <script>
       window.tailwindConfig = {
         theme: {
           extend: {
             fontFamily: { sans: ['Inter', 'sans-serif'] },
-            colors: {
-              blue: { 50: '#f0f9ff', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a' },
-              slate: { 700: '#334155', 800: '#1e293b', 900: '#0f172a' }
-            }
+            colors: { blue: { 600: '#2563eb' }, slate: { 900: '#0f172a' } }
           }
         }
       };
-      // Aplicar config cuando cargue el script
-      document.addEventListener('DOMContentLoaded', () => {
-        if(window.tailwind) window.tailwind.config = window.tailwindConfig;
-      });
     </script>
 
-    <!-- 5. GTM No Bloqueante (Carga tras 2.5s para no penalizar el TBT) -->
+    <!-- 4. GTM DE BAJA PRIORIDAD (Carga después de 4s para no afectar TBT) -->
     <script>
       setTimeout(() => {
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = "https://www.googletagmanager.com/gtag/js?id=G-T6JS6Z27GG";
-        document.head.appendChild(script);
+        const s = document.createElement('script');
+        s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=G-T6JS6Z27GG";
+        document.head.appendChild(s);
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-T6JS6Z27GG');
-      }, 2500);
+        gtag('js', new Date()); gtag('config', 'G-T6JS6Z27GG');
+      }, 4000);
     </script>
 
     <script type="importmap">
@@ -77,25 +65,23 @@
     </script>
 </head>
 <body>
-    <!-- Pintura inicial instantánea (Skeleton funcional) -->
-    <div id="loading-overlay" style="position: absolute; width: 100%;">
-        <div class="nav-fixed"></div>
-        <div class="hero-fast">
-            <div class="title-fast">Diseño Web y SEO que atrae <span style="color:var(--blue-600)">clientes</span></div>
-            <p class="sub-fast">Creamos sistemas web para Pymes que funcionan y te posicionan en Google en tiempo récord.</p>
-            <div class="btn-fast"></div>
+    <!-- 5. INSTANT UI: Esto es lo que Google ve primero -->
+    <div id="instant-shell">
+        <div class="nav-shell"></div>
+        <div class="hero-shell">
+            <div class="tag-shell">Diseño Web y SEO Local para Pymes</div>
+            <h1 class="h1-shell">Diseño Web y SEO que atrae <span style="color:var(--blue)">clientes</span></h1>
+            <p class="p-shell">Creamos sistemas web pensados para que tu teléfono suene y entren contactos reales.</p>
+            <div class="btn-shell"></div>
         </div>
     </div>
 
     <div id="root"></div>
 
     <script type="module">
-        // Quitar el overlay cuando React esté listo
+        // Notificar hidratación
         window.addEventListener('load', () => {
-            const root = document.getElementById('root');
-            const overlay = document.getElementById('loading-overlay');
-            if (overlay) overlay.style.display = 'none';
-            root.classList.add('loaded');
+            setTimeout(() => document.body.classList.add('hydrated'), 100);
         });
     </script>
     <script type="module" src="/index.tsx"></script>
