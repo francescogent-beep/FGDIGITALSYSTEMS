@@ -6,47 +6,60 @@
     <title>Diseño Web y SEO para Pymes | FG Digital Systems</title>
     <meta name="description" content="Diseño web y SEO local para Pymes. Creamos sistemas web que atraen clientes y aumentan las ventas sin cuotas mensuales ni tecnicismos en Murcia y España.">
     
-    <!-- 1. Preconexiones Críticas -->
+    <!-- 1. Preload de Recurso LCP (Imagen Crítica) -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1460925895917-afdab827c52f?fm=webp&fit=crop&q=60&w=600" fetchpriority="high">
+
+    <!-- 2. Optimización de Conexiones -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 
-    <!-- 2. CSS CRÍTICO (Inline para PageSpeed 90+) -->
+    <!-- 3. CSS CRÍTICO (Pintura instantánea sin depender de Tailwind/React) -->
     <style>
-      :root { --blue-600: #2563eb; --slate-900: #0f172a; --slate-700: #334155; --slate-50: #f8fafc; --white: #ffffff; }
-      body { margin: 0; font-family: 'Inter', system-ui, sans-serif; background: var(--slate-50); -webkit-font-smoothing: antialiased; }
-      .nav-skeleton { height: 64px; background: rgba(255,255,255,0.9); border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 50; }
-      .hero-skeleton { padding: 2rem 1rem; text-align: center; background: var(--white); min-height: 40vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-      .title-skeleton { font-size: 2.25rem; font-weight: 800; color: var(--slate-900); margin-bottom: 1rem; line-height: 1.1; max-width: 800px; letter-spacing: -0.025em; }
-      @media (min-width: 768px) { .title-skeleton { font-size: 4.5rem; padding-top: 1rem; } }
-      .sub-skeleton { color: var(--slate-700); font-size: 1.125rem; max-width: 650px; line-height: 1.5; margin-bottom: 2rem; }
-      .btn-skeleton { height: 58px; width: 260px; background: var(--blue-600); border-radius: 1rem; }
+      :root { --blue-600: #2563eb; --slate-900: #0f172a; --slate-700: #334155; --white: #ffffff; }
+      body { margin: 0; font-family: 'Inter', system-ui, sans-serif; background: #f8fafc; -webkit-font-smoothing: antialiased; }
+      .nav-fixed { height: 64px; background: rgba(255,255,255,0.9); border-bottom: 1px solid #e2e8f0; position: fixed; top: 0; width: 100%; z-index: 100; }
+      .hero-fast { padding-top: 100px; padding-bottom: 40px; text-align: center; background: var(--white); display: flex; flex-direction: column; align-items: center; px: 20px; }
+      .title-fast { font-size: 2.25rem; font-weight: 800; color: var(--slate-900); margin-bottom: 1rem; line-height: 1.1; max-width: 90%; letter-spacing: -0.025em; }
+      @media (min-width: 768px) { .title-fast { font-size: 4.5rem; } }
+      .sub-fast { color: var(--slate-700); font-size: 1.1rem; max-width: 600px; line-height: 1.5; margin: 0 auto 2rem; padding: 0 20px; }
+      .btn-fast { height: 58px; width: 260px; background: var(--blue-600); border-radius: 1rem; border: none; }
+      #root { opacity: 0; transition: opacity 0.2s ease-in; }
+      #root.loaded { opacity: 1; }
     </style>
 
-    <!-- 3. Tailwind Engine (Configuración optimizada) -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 4. Tailwind Engine (Carga diferida para no bloquear el FCP) -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
     <script>
-      tailwind.config = {
+      window.tailwindConfig = {
         theme: {
           extend: {
             fontFamily: { sans: ['Inter', 'sans-serif'] },
             colors: {
-              blue: { 50: '#f0f9ff', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a', 950: '#0a192f' },
+              blue: { 50: '#f0f9ff', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a' },
               slate: { 700: '#334155', 800: '#1e293b', 900: '#0f172a' }
             }
           }
         }
-      }
+      };
+      // Aplicar config cuando cargue el script
+      document.addEventListener('DOMContentLoaded', () => {
+        if(window.tailwind) window.tailwind.config = window.tailwindConfig;
+      });
     </script>
 
-    <!-- 4. Scripts No Bloqueantes -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T6JS6Z27GG"></script>
+    <!-- 5. GTM No Bloqueante (Carga tras 2.5s para no penalizar el TBT) -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-T6JS6Z27GG', { 'page_path': window.location.pathname });
+      setTimeout(() => {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = "https://www.googletagmanager.com/gtag/js?id=G-T6JS6Z27GG";
+        document.head.appendChild(script);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-T6JS6Z27GG');
+      }, 2500);
     </script>
 
     <script type="importmap">
@@ -64,14 +77,27 @@
     </script>
 </head>
 <body>
-    <div id="root">
-        <nav class="nav-skeleton"></nav>
-        <main class="hero-skeleton">
-            <div class="title-skeleton">Diseño Web y SEO que atrae <span style="color:var(--blue-600)">clientes</span></div>
-            <div class="sub-skeleton">Creamos sistemas web para Pymes que funcionan y te posicionan en Google.</div>
-            <div class="btn-skeleton"></div>
-        </main>
+    <!-- Pintura inicial instantánea (Skeleton funcional) -->
+    <div id="loading-overlay" style="position: absolute; width: 100%;">
+        <div class="nav-fixed"></div>
+        <div class="hero-fast">
+            <div class="title-fast">Diseño Web y SEO que atrae <span style="color:var(--blue-600)">clientes</span></div>
+            <p class="sub-fast">Creamos sistemas web para Pymes que funcionan y te posicionan en Google en tiempo récord.</p>
+            <div class="btn-fast"></div>
+        </div>
     </div>
+
+    <div id="root"></div>
+
+    <script type="module">
+        // Quitar el overlay cuando React esté listo
+        window.addEventListener('load', () => {
+            const root = document.getElementById('root');
+            const overlay = document.getElementById('loading-overlay');
+            if (overlay) overlay.style.display = 'none';
+            root.classList.add('loaded');
+        });
+    </script>
     <script type="module" src="/index.tsx"></script>
 </body>
 </html>
