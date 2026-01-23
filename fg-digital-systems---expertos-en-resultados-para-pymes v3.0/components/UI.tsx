@@ -19,7 +19,7 @@ export const TallyModal: React.FC = () => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-0 md:p-4 bg-slate-900/95 backdrop-blur-md transition-opacity duration-200">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-0 md:p-4 bg-slate-900/90 backdrop-blur-sm transition-opacity duration-200">
       <div className="bg-white w-full h-full md:h-[85vh] md:max-w-2xl md:max-h-[90vh] md:rounded-[2.5rem] shadow-2xl flex flex-col overflow-hidden relative border-none md:border md:border-slate-100">
         
         {/* Brand Header */}
@@ -28,12 +28,12 @@ export const TallyModal: React.FC = () => {
             <div className="w-8 h-8 md:w-10 md:h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-[12px] md:text-[14px]">FG</div>
             <div className="flex flex-col">
               <span className="text-sm md:text-lg font-black text-slate-900 tracking-tighter uppercase leading-none">DIGITAL <span className="text-blue-600">SYSTEMS</span></span>
-              <span className="text-[9px] md:text-[10px] font-black text-slate-700 uppercase tracking-widest mt-0.5">Propuesta Personalizada</span>
+              <span className="text-[9px] md:text-[10px] font-black text-slate-800 uppercase tracking-widest mt-0.5">Propuesta Personalizada</span>
             </div>
           </div>
           <button 
             onClick={() => setIsOpen(false)}
-            className="p-2 md:p-3 rounded-full bg-slate-50 text-slate-800 hover:bg-slate-100 transition-colors"
+            className="p-2 md:p-3 rounded-full bg-slate-50 text-slate-900 hover:bg-slate-100 transition-colors"
             aria-label="Cerrar"
           >
             <X size={24} />
@@ -52,7 +52,7 @@ export const TallyModal: React.FC = () => {
         </div>
 
         <div className="hidden md:block px-10 py-4 bg-slate-50 text-center border-t border-slate-100">
-          <p className="text-[10px] text-slate-800 font-black uppercase tracking-[0.2em]">Respuesta garantizada en menos de 24 horas</p>
+          <p className="text-[10px] text-slate-900 font-black uppercase tracking-[0.2em]">Respuesta garantizada en menos de 24 horas</p>
         </div>
       </div>
     </div>
@@ -80,7 +80,7 @@ export const Button: React.FC<{
   onClick?: () => void;
   tallyId?: string;
 }> = ({ children, to, variant = 'primary', className = '', onClick, tallyId }) => {
-  const base = "inline-flex items-center justify-center px-6 py-4 md:px-10 md:py-5 rounded-2xl font-bold transition-all text-center focus:outline-none active:scale-[0.98] tracking-tight";
+  const base = "inline-flex items-center justify-center px-6 py-4 md:px-10 md:py-5 rounded-2xl font-black transition-all text-center focus:outline-none active:scale-[0.98] tracking-tight";
   const styles = {
     primary: "bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-500/25",
     secondary: "bg-white text-slate-900 hover:bg-slate-50 shadow-xl border border-slate-200",
@@ -104,12 +104,12 @@ export const FAQAccordion: React.FC<{ question: string; answer: string }> = ({ q
         className="w-full text-left px-6 py-5 flex justify-between items-center bg-white group"
       >
         <span className={`font-black md:text-lg tracking-tight ${isOpen ? 'text-blue-600' : 'text-slate-900'}`}>{question}</span>
-        <div className={`p-2 rounded-full transition-all duration-300 ${isOpen ? 'bg-blue-600 text-white rotate-180' : 'bg-slate-100 text-slate-700'}`}>
+        <div className={`p-2 rounded-full transition-all duration-300 ${isOpen ? 'bg-blue-600 text-white rotate-180' : 'bg-slate-100 text-slate-800'}`}>
           <ChevronDown size={20} />
         </div>
       </button>
       <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-        <div className="px-6 pb-6 pt-0 md:px-8 md:pb-8 text-slate-800 leading-relaxed text-sm md:text-base border-t border-slate-50 font-medium">
+        <div className="px-6 pb-6 pt-0 md:px-8 md:pb-8 text-slate-900 leading-relaxed text-sm md:text-base border-t border-slate-50 font-bold">
           {answer}
         </div>
       </div>
@@ -121,7 +121,7 @@ export const Breadcrumbs: React.FC<{
   items: { label: string; path?: string }[];
 }> = ({ items }) => (
   <nav className="flex mb-8 overflow-x-auto whitespace-nowrap pb-2 scrollbar-hide">
-    <ol className="flex items-center space-x-2 text-xs md:text-sm font-black tracking-widest uppercase text-slate-700">
+    <ol className="flex items-center space-x-2 text-xs md:text-sm font-black tracking-widest uppercase text-slate-800">
       <li>
         <Link to="/" className="hover:text-blue-600 transition-colors flex items-center gap-1.5">
           <HomeIcon size={14} />
@@ -162,9 +162,9 @@ export const PricingCard: React.FC<{
       )}
       
       <div className="mb-8">
-        <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-2 tracking-tight">{plan.name}</h3>
+        <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-2 tracking-tighter">{plan.name}</h3>
         {plan.tagline && (
-          <p className="text-slate-800 text-[11px] font-black uppercase tracking-widest mb-4 italic opacity-90">"{plan.tagline}"</p>
+          <p className="text-slate-900 text-[11px] font-black uppercase tracking-widest mb-4 italic opacity-80">"{plan.tagline}"</p>
         )}
         <div className="inline-flex items-center gap-2 text-blue-900 text-[10px] font-black uppercase tracking-wider px-4 py-1.5 bg-blue-50 rounded-full border border-blue-100">
           <Zap size={12} className="fill-current text-blue-600" />
@@ -173,11 +173,11 @@ export const PricingCard: React.FC<{
       </div>
 
       <div className="mb-8 flex items-baseline gap-2">
-        <span className="text-slate-700 text-sm font-bold italic">Desde</span>
+        <span className="text-slate-800 text-sm font-bold italic">Desde</span>
         <span className="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter">{plan.price}</span>
       </div>
       
-      <p className="text-slate-800 text-sm md:text-base mb-10 min-h-[56px] leading-relaxed font-bold">{plan.description}</p>
+      <p className="text-slate-900 text-sm md:text-base mb-10 min-h-[56px] leading-relaxed font-black">{plan.description}</p>
       
       <div className="bg-slate-50 p-5 rounded-2xl mb-10 flex items-center gap-4 border border-slate-100 group-hover:bg-blue-50 transition-colors">
          <div className="bg-white text-green-700 p-2 rounded-xl shadow-sm border border-slate-100">
@@ -185,7 +185,7 @@ export const PricingCard: React.FC<{
          </div>
          <div>
             <span className="text-xs font-black text-slate-950 block uppercase tracking-tight">Propiedad Total</span>
-            <span className="text-[11px] text-slate-800 font-black opacity-80">Pago único, sin sorpresas.</span>
+            <span className="text-[11px] text-slate-900 font-black opacity-80">Pago único, sin sorpresas.</span>
          </div>
       </div>
 
