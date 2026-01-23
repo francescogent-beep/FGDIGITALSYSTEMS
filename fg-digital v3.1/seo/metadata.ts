@@ -10,7 +10,7 @@ export interface PageMetadata {
 }
 
 export const CANONICAL_DOMAIN = 'https://fgdigitalsystems.com';
-const DEFAULT_OG_IMAGE = '/og-image.png';
+const DEFAULT_OG_IMAGE = 'https://i.imgur.com/rYq5wTX.png';
 
 export const METADATA: Record<string, PageMetadata> = {
   home: {
