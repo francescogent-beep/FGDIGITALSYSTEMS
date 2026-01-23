@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T6JS6Z27GG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-T6JS6Z27GG');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño Web y SEO para Pymes | FG Digital Systems</title>
+    <meta name="description" content="Diseño web y SEO local para Pymes. Creamos sistemas web que atraen clientes y aumentan las ventas sin cuotas mensuales ni tecnicismos en Murcia y España.">
+    
+    <!-- 1. DNS & Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    
+    <!-- 2. Optimized Font Loading -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" media="print" onload="this.media='all'">
+
+    <!-- 3. Tailwind CDN for Instant Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+            },
+            colors: {
+              blue: {
+                50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa',
+                500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a',
+              },
+            },
+          },
+        },
+      }
+    </script>
+
+    <!-- 4. Critical CSS for LCP -->
+    <style>
+      :root { --blue-600: #2563eb; --slate-900: #0f172a; --slate-700: #334155; --slate-600: #475569; --slate-50: #f8fafc; }
+      body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: var(--slate-50); color: var(--slate-900); -webkit-font-smoothing: antialiased; }
+      #root { min-height: 100vh; display: flex; flex-direction: column; }
+      .hero-section { min-height: 60vh; display: flex; align-items: center; justify-content: center; background: #fff; text-align: center; padding: 5rem 1rem; }
+      .lcp-title { font-size: 2.5rem; font-weight: 800; line-height: 1.1; color: var(--slate-900); margin-bottom: 1.5rem; letter-spacing: -0.025em; max-width: 900px; margin-left: auto; margin-right: auto; }
+      @media (min-width: 768px) { .lcp-title { font-size: 4.5rem; } }
+      .lcp-title span { color: var(--blue-600); }
+      .hero-sub { color: var(--slate-600); font-size: 1.125rem; max-width: 650px; margin: 0 auto 2.5rem; line-height: 1.6; }
+      @media (min-width: 768px) { .hero-sub { font-size: 1.5rem; } }
+      .navbar-placeholder { height: 64px; background: white; border-bottom: 1px solid #e2e8f0; width: 100%; position: sticky; top: 0; z-index: 50; }
+      .btn-stub { display: inline-flex; height: 60px; width: 280px; background: var(--blue-600); border-radius: 1rem; margin: 0.5rem; }
+    </style>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+        "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
+        "vite": "https://esm.sh/vite@^7.3.1",
+        "react-router": "https://esm.sh/react-router@^7.12.0"
+      }
+    }
+    </script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root">
+        <div class="navbar-placeholder"></div>
+        <main class="hero-section">
+            <div style="max-width: 900px; margin: 0 auto; padding: 0 1rem;">
+                <h1 class="lcp-title">Diseño Web y SEO que atrae <span>clientes</span></h1>
+                <p class="hero-sub">Creamos sistemas web para Pymes que funcionan y te posicionan en Google con precios claros.</p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+                    <div class="btn-stub"></div>
+                    <div class="btn-stub" style="background: transparent; border: 2px solid #e2e8f0;"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="/index.tsx" defer></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
