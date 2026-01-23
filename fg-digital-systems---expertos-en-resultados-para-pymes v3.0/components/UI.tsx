@@ -19,13 +19,13 @@ export const TallyModal: React.FC = () => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-0 md:p-4 bg-slate-900/95 backdrop-blur-xl transition-all duration-300 animate-in fade-in">
-      <div className="bg-white w-full h-full md:h-[85vh] md:max-w-2xl md:max-h-[90vh] md:rounded-[2.5rem] shadow-[0_32px_128px_-16px_rgba(0,0,0,0.4)] flex flex-col overflow-hidden relative border-none md:border md:border-slate-100">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-0 md:p-4 bg-slate-900/95 backdrop-blur-md transition-opacity duration-200">
+      <div className="bg-white w-full h-full md:h-[85vh] md:max-w-2xl md:max-h-[90vh] md:rounded-[2.5rem] shadow-2xl flex flex-col overflow-hidden relative border-none md:border md:border-slate-100">
         
         {/* Brand Header */}
         <div className="px-6 py-4 md:px-10 md:py-6 border-b border-slate-100 flex items-center justify-between bg-white shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 md:w-10 md:h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-[12px] md:text-[14px] shadow-lg shadow-blue-500/20">FG</div>
+            <div className="w-8 h-8 md:w-10 md:h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-[12px] md:text-[14px]">FG</div>
             <div className="flex flex-col">
               <span className="text-sm md:text-lg font-black text-slate-900 tracking-tighter uppercase leading-none">DIGITAL <span className="text-blue-600">SYSTEMS</span></span>
               <span className="text-[9px] md:text-[10px] font-black text-slate-700 uppercase tracking-widest mt-0.5">Propuesta Personalizada</span>
@@ -33,7 +33,7 @@ export const TallyModal: React.FC = () => {
           </div>
           <button 
             onClick={() => setIsOpen(false)}
-            className="p-2 md:p-3 rounded-full bg-slate-50 text-slate-800 hover:text-slate-900 hover:bg-slate-100 transition-all active:scale-90"
+            className="p-2 md:p-3 rounded-full bg-slate-50 text-slate-800 hover:bg-slate-100 transition-colors"
             aria-label="Cerrar"
           >
             <X size={24} />
@@ -47,6 +47,7 @@ export const TallyModal: React.FC = () => {
             height="100%" 
             className="absolute inset-0 border-none w-full h-full"
             title="Solicitar propuesta clara"
+            loading="lazy"
           />
         </div>
 
@@ -100,10 +101,10 @@ export const FAQAccordion: React.FC<{ question: string; answer: string }> = ({ q
     <div className={`border rounded-2xl overflow-hidden bg-white mb-4 transition-all duration-300 ${isOpen ? 'border-blue-300 shadow-lg' : 'border-slate-200 hover:border-slate-300'}`}>
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full text-left px-6 py-5 flex justify-between items-center bg-white transition-colors group"
+        className="w-full text-left px-6 py-5 flex justify-between items-center bg-white group"
       >
-        <span className={`font-black transition-colors md:text-lg tracking-tight ${isOpen ? 'text-blue-600' : 'text-slate-900'}`}>{question}</span>
-        <div className={`p-2 rounded-full transition-all duration-300 ${isOpen ? 'bg-blue-600 text-white rotate-180' : 'bg-slate-100 text-slate-700 group-hover:text-slate-900'}`}>
+        <span className={`font-black md:text-lg tracking-tight ${isOpen ? 'text-blue-600' : 'text-slate-900'}`}>{question}</span>
+        <div className={`p-2 rounded-full transition-all duration-300 ${isOpen ? 'bg-blue-600 text-white rotate-180' : 'bg-slate-100 text-slate-700'}`}>
           <ChevronDown size={20} />
         </div>
       </button>
@@ -153,7 +154,7 @@ export const PricingCard: React.FC<{
   };
 
   return (
-    <div className={`relative p-8 md:p-12 rounded-[2.5rem] bg-white border transition-all duration-500 ${plan.recommended ? 'border-blue-600 shadow-2xl lg:scale-[1.05] z-10' : 'border-slate-200 shadow-lg hover:shadow-xl hover:border-slate-300'} flex flex-col group`}>
+    <div className={`relative p-8 md:p-12 rounded-[2.5rem] bg-white border transition-all duration-300 ${plan.recommended ? 'border-blue-600 shadow-2xl lg:scale-[1.02] z-10' : 'border-slate-200 shadow-lg hover:border-slate-300'} flex flex-col group`}>
       {plan.recommended && (
         <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[10px] font-black uppercase tracking-[0.2em] px-8 py-2.5 rounded-full shadow-xl">
           Opción Recomendada
@@ -178,8 +179,8 @@ export const PricingCard: React.FC<{
       
       <p className="text-slate-800 text-sm md:text-base mb-10 min-h-[56px] leading-relaxed font-bold">{plan.description}</p>
       
-      <div className="bg-slate-50 p-5 rounded-2xl mb-10 flex items-center gap-4 border border-slate-100 group-hover:bg-blue-50/50 transition-colors">
-         <div className="bg-white text-green-700 p-2 rounded-xl shadow-sm border border-slate-200">
+      <div className="bg-slate-50 p-5 rounded-2xl mb-10 flex items-center gap-4 border border-slate-100 group-hover:bg-blue-50 transition-colors">
+         <div className="bg-white text-green-700 p-2 rounded-xl shadow-sm border border-slate-100">
             <ShieldCheck size={20} />
          </div>
          <div>
