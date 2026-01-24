@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño Web y SEO para Pymes | FG Digital Systems</title>
+    <meta name="description" content="Diseño web y SEO local para Pymes en Murcia. Creamos sistemas web que atraen clientes y aumentan ventas sin cuotas mensuales.">
+    
+    <!-- 1. Priority Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://esm.sh">
+
+    <!-- 2. Optimized Font Loading -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    </noscript>
+
+    <!-- 3. Critical CSS Shell (Prevents FOUC) -->
+    <style>
+      :root { --blue-600: #2563eb; --slate-900: #0f172a; --slate-600: #475569; }
+      body { margin: 0; background: #fff; font-family: 'Inter', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; color: #0f172a; }
+      .nav-shell { height: 64px; background: #fff; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; padding: 0 1.5rem; }
+      .hero-shell { padding: 3rem 1.5rem 5rem; text-align: center; max-width: 896px; margin: 0 auto; }
+      .badge-shell { display: inline-flex; align-items: center; background: #eff6ff; color: #1e40af; padding: 0.5rem 1.25rem; border-radius: 9999px; font-weight: 700; font-size: 0.875rem; margin-bottom: 1.5rem; border: 1px solid #dbeafe; }
+      .h1-shell { font-size: 2.5rem; font-weight: 800; line-height: 1.1; color: var(--slate-900); margin-bottom: 1.5rem; letter-spacing: -0.025em; }
+      @media (min-width: 768px) { .h1-shell { font-size: 4.5rem; } .hero-shell { padding: 5.5rem 1.5rem 5rem; } }
+      .p-shell { font-size: 1.125rem; color: var(--slate-600); margin-bottom: 2.5rem; line-height: 1.6; max-width: 672px; margin-left: auto; margin-right: auto; }
+      .btn-shell { height: 60px; width: 260px; background: var(--blue-600); border-radius: 1rem; display: inline-block; }
+      .logo-box { width: 32px; height: 32px; background: var(--blue-600); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 14px; }
+    </style>
+
+    <!-- 4. Tailwind CDN + Config (Required for design in preview) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+            },
+            colors: {
+              blue: {
+                50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 
+                500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a',
+              },
+            },
+            animation: {
+              'bounce-slow': 'bounce 3s infinite',
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- 5. Stable Import Map -->
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.460.0?deps=react@19.0.0",
+    "react-router": "https://esm.sh/react-router@7.12.0?deps=react@19.0.0,react-dom@19.0.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@7.12.0?deps=react@19.0.0,react-dom@19.0.0",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+
+    <!-- 6. Third-party Deferral -->
+    <script>
+      window.addEventListener('load', function() {
+        const loadGTM = () => {
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','G-T6JS6Z27GG');
+        };
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadGTM, { timeout: 4000 });
+        } else {
+          setTimeout(loadGTM, 5000);
+        }
+      });
+    </script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root">
+        <nav class="nav-shell">
+          <div style="display:flex; align-items:center; gap:0.75rem">
+            <div class="logo-box">FG</div>
+            <div style="font-weight:800; font-size:1.25rem; color:#0f172a; letter-spacing:-0.025em">FG DIGITAL SYSTEMS</div>
+          </div>
+        </nav>
+        <main class="hero-shell">
+            <div class="badge-shell">Diseño Web y SEO Local para Pymes</div>
+            <h1 class="h1-shell">Diseño Web y SEO que atrae <span style="color:#2563eb">clientes</span></h1>
+            <p class="p-shell">Creamos sistemas web pensados para una sola cosa: que tu teléfono suene y entren contactos reales.</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+                <div class="btn-shell"></div>
+                <div class="btn-shell" style="background:transparent; border:2px solid #e2e8f0; width:220px"></div>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="/index.tsx" crossorigin></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
