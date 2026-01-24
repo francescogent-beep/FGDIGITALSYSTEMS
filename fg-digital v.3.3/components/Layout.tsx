@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router';
 import { ROUTES } from '../constants';
-import { Menu, X, ArrowRight, ShieldAlert, ChevronDown, ChevronUp, Mail, Phone, MapPin, User } from 'lucide-react';
+import { Menu, X, ArrowRight, ShieldAlert, ChevronDown, ChevronUp, Mail, Phone, MapPin, User, Instagram, Facebook } from 'lucide-react';
 import { WhatsAppQualifier } from './WhatsAppQualifier';
 import { Button } from './UI';
 
@@ -163,7 +163,7 @@ export const Footer: React.FC = () => {
           <p className="max-w-sm text-slate-200 mb-8 font-medium leading-relaxed">
             Especialistas en transformar la presencia digital de negocios locales. Creamos sistemas web que atraen clientes y automatizan tus ventas.
           </p>
-          <div className="space-y-4">
+          <div className="space-y-4 mb-8">
             <div className="flex items-center gap-3 text-slate-100 group">
               <div className="p-2 bg-slate-800 rounded-lg group-hover:bg-blue-600 transition-colors">
                 <User size={16} className="text-blue-400 group-hover:text-white" />
@@ -181,6 +181,27 @@ export const Footer: React.FC = () => {
                 <Mail size={16} className="text-blue-400 group-hover:text-white" />
               </div>
               <span className="text-sm font-bold">info@fgdigitalsystems.com</span>
+            </a>
+          </div>
+          
+          <div className="flex items-center gap-4">
+            <a 
+              href="https://www.instagram.com/fg_digital_systems/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-3 bg-slate-800 rounded-xl hover:bg-blue-600 hover:text-white transition-all shadow-sm"
+              aria-label="Instagram de FG Digital Systems"
+            >
+              <Instagram size={20} />
+            </a>
+            <a 
+              href="https://www.facebook.com/people/FG-Digital-Systems/61587041462172/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-3 bg-slate-800 rounded-xl hover:bg-blue-600 hover:text-white transition-all shadow-sm"
+              aria-label="Facebook de FG Digital Systems"
+            >
+              <Facebook size={20} />
             </a>
           </div>
         </div>
