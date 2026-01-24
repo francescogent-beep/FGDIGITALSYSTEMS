@@ -25,7 +25,7 @@ export const Navbar: React.FC = () => {
                 key={route.path}
                 to={route.path}
                 className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                  location.pathname === route.path ? 'text-blue-600' : 'text-slate-600'
+                  location.pathname === route.path ? 'text-blue-600' : 'text-slate-700'
                 }`}
               >
                 {route.name}
@@ -42,7 +42,7 @@ export const Navbar: React.FC = () => {
 
           {/* Mobile toggle */}
           <button 
-            className="md:hidden p-2 text-slate-600" 
+            className="md:hidden p-2 text-slate-700" 
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
           >
@@ -58,7 +58,7 @@ export const Navbar: React.FC = () => {
             <Link
               key={route.path}
               to={route.path}
-              className="block text-base font-medium text-slate-600 hover:text-blue-600"
+              className="block text-base font-medium text-slate-700 hover:text-blue-600"
               onClick={() => setIsOpen(false)}
             >
               {route.name}
@@ -107,8 +107,8 @@ export const CookieBanner: React.FC = () => {
           <div className="bg-blue-600 p-2 rounded-lg shrink-0">
             <ShieldAlert size={20} />
           </div>
-          <p className="text-sm md:text-base text-slate-200 leading-relaxed">
-            Utilizamos cookies propias y de terceros para mejorar tu experiencia y analizar el tráfico. Al navegar, aceptas nuestra <Link to="/politica-de-cookies" className="text-blue-400 font-bold hover:underline">Política de Cookies</Link>.
+          <p className="text-sm md:text-base text-slate-100 leading-relaxed">
+            Utilizamos cookies propias y de terceros para mejorar tu experiencia y analizar el tráfico. Al navegar, aceptas nuestra <Link to="/politica-de-cookies" className="text-blue-300 font-bold hover:underline">Política de Cookies</Link>.
           </p>
         </div>
         <div className="flex gap-3 w-full md:w-auto">
@@ -120,7 +120,7 @@ export const CookieBanner: React.FC = () => {
           </button>
           <button 
             onClick={decline}
-            className="flex-grow md:flex-none px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition-all text-center"
+            className="flex-grow md:flex-none px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition-all text-center border border-slate-700"
           >
             Rechazar
           </button>
@@ -160,17 +160,17 @@ export const Footer: React.FC = () => {
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-[14px]">FG</div>
             <span className="text-xl font-bold text-white tracking-tighter uppercase">DIGITAL SYSTEMS</span>
           </div>
-          <p className="max-w-sm text-slate-300 mb-6 font-medium">
+          <p className="max-w-sm text-slate-200 mb-6 font-medium">
             Ayudamos a pequeñas y medianas empresas a conseguir más clientes mediante webs rápidas, SEO local y estrategias optimizadas para Google en la Región de Murcia y Alicante.
           </p>
           <div className="space-y-3">
-            <div className="flex items-center gap-3 text-slate-200 group">
+            <div className="flex items-center gap-3 text-slate-100 group">
               <div className="p-2 bg-slate-800 rounded-lg group-hover:bg-blue-600 transition-colors">
                 <User size={16} className="text-blue-400 group-hover:text-white" />
               </div>
               <span className="text-sm font-bold">Francesco Gentile</span>
             </div>
-            <div className="flex items-center gap-3 text-slate-200 group">
+            <div className="flex items-center gap-3 text-slate-100 group">
               <div className="p-2 bg-slate-800 rounded-lg group-hover:bg-blue-600 transition-colors">
                 <MapPin size={16} className="text-blue-400 group-hover:text-white" />
               </div>
@@ -194,10 +194,10 @@ export const Footer: React.FC = () => {
         <div>
           <h2 className="text-white font-bold text-lg mb-4">Servicios</h2>
           <ul className="space-y-2">
-            <li><Link to="/web-que-vende" className="hover:text-blue-400 transition-colors font-medium">Web que Vende</Link></li>
-            <li><Link to="/seo-local" className="hover:text-blue-400 transition-colors font-medium">SEO Local</Link></li>
-            <li><Link to="/tarifas-diseno-web" className="hover:text-blue-400 transition-colors font-medium">Tarifas Web</Link></li>
-            <li><Link to="/casos-exito" className="hover:text-blue-400 transition-colors font-medium">Casos de Éxito</Link></li>
+            <li><Link to="/web-que-vende" className="hover:text-blue-300 transition-colors font-medium">Web que Vende</Link></li>
+            <li><Link to="/seo-local" className="hover:text-blue-300 transition-colors font-medium">SEO Local</Link></li>
+            <li><Link to="/tarifas-diseno-web" className="hover:text-blue-300 transition-colors font-medium">Tarifas Web</Link></li>
+            <li><Link to="/casos-exito" className="hover:text-blue-300 transition-colors font-medium">Casos de Éxito</Link></li>
           </ul>
         </div>
         
@@ -206,7 +206,7 @@ export const Footer: React.FC = () => {
           <div className="space-y-2">
             <button 
               onClick={() => setShowZonas(!showZonas)}
-              className="flex items-center justify-between w-full text-left hover:text-blue-400 transition-colors group"
+              className="flex items-center justify-between w-full text-left hover:text-blue-300 transition-colors group"
             >
               <span className="font-bold">Seleccionar Ciudad</span>
               {showZonas ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -215,7 +215,7 @@ export const Footer: React.FC = () => {
               <ul className="pl-3 mt-2 space-y-2 border-l border-slate-700 text-xs">
                 {LOCATIONS.map((loc) => (
                   <li key={loc.slug}>
-                    <span className="text-slate-100 font-bold block mb-1">{loc.name}</span>
+                    <span className="text-slate-50 font-bold block mb-1">{loc.name}</span>
                     <div className="grid grid-cols-1 gap-1 ml-2 opacity-80 font-medium">
                        <Link to={`/diseno-web/${loc.slug}`} className="hover:text-white">- Diseño Web</Link>
                        <Link to={`/seo-maps/${loc.slug}`} className="hover:text-white">- SEO Maps</Link>
@@ -232,7 +232,7 @@ export const Footer: React.FC = () => {
           <div className="space-y-2">
             <button 
               onClick={() => setShowProfesiones(!showProfesiones)}
-              className="flex items-center justify-between w-full text-left hover:text-blue-400 transition-colors group"
+              className="flex items-center justify-between w-full text-left hover:text-blue-300 transition-colors group"
             >
               <span className="font-bold">SEO por sector</span>
               {showProfesiones ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -241,7 +241,7 @@ export const Footer: React.FC = () => {
               <ul className="pl-3 mt-2 space-y-2 border-l border-slate-700 text-xs">
                 {PROFESSIONS_LIST.map((prof) => (
                   <li key={prof.slug}>
-                    <span className="text-slate-100 font-bold block mb-1">{prof.name}</span>
+                    <span className="text-slate-50 font-bold block mb-1">{prof.name}</span>
                     <div className="flex flex-wrap gap-x-2 gap-y-1 opacity-80 font-medium">
                       <Link to={`/murcia/web-seo/${prof.slug}`} className="hover:text-white">Murcia</Link>
                       <Link to={`/cartagena/web-seo/${prof.slug}`} className="hover:text-white">Cartagena</Link>
@@ -256,11 +256,11 @@ export const Footer: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-slate-800 text-sm flex flex-col md:flex-row justify-between items-center gap-4 text-center">
-        <p className="font-medium">&copy; {new Date().getFullYear()} FG DIGITAL SYSTEMS. Todos los derechos reservados.</p>
+        <p className="font-medium text-slate-200">&copy; {new Date().getFullYear()} FG DIGITAL SYSTEMS. Todos los derechos reservados.</p>
         <div className="flex gap-6">
-          <Link to="/aviso-legal" className="hover:text-white transition-colors font-bold">Aviso Legal</Link>
-          <Link to="/politica-de-privacidad" className="hover:text-white transition-colors font-bold">Privacidad</Link>
-          <Link to="/politica-de-cookies" className="hover:text-white transition-colors font-bold">Cookies</Link>
+          <Link to="/aviso-legal" className="hover:text-white transition-colors font-bold text-slate-200">Aviso Legal</Link>
+          <Link to="/politica-de-privacidad" className="hover:text-white transition-colors font-bold text-slate-200">Privacidad</Link>
+          <Link to="/politica-de-cookies" className="hover:text-white transition-colors font-bold text-slate-200">Cookies</Link>
         </div>
       </div>
       
