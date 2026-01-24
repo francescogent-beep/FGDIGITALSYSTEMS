@@ -107,11 +107,11 @@ Cuándo: ${answers.q4}${url ? `\nMi web actual: ${url}` : ''}`;
 
   return (
     <>
-      {/* Floating Button */}
+      {/* Floating Button - Updated to Green-700 for accessibility contrast (AA compliant with white text) */}
       <div className="fixed bottom-6 right-6 z-40">
         <button
           onClick={() => setIsOpen(true)}
-          className="relative bg-green-500 text-white p-4 md:px-6 md:py-4 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2 group border-2 border-white/20"
+          className="relative bg-green-700 text-white p-4 md:px-6 md:py-4 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2 group border-2 border-white/20"
           aria-label="Abrir calificador de presupuesto por WhatsApp"
         >
           <MessageCircle size={24} className="group-hover:rotate-12 transition-transform" />
@@ -140,12 +140,12 @@ Cuándo: ${answers.q4}${url ? `\nMi web actual: ${url}` : ''}`;
                 </div>
                 <div>
                   <h3 id="qualifier-title" className="text-xl font-black text-slate-900 tracking-tight">Presupuesto Rápido</h3>
-                  <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Paso {Math.min(step + 1, QUESTIONS.length)} de {QUESTIONS.length}</p>
+                  <p className="text-slate-600 text-[10px] font-bold uppercase tracking-widest">Paso {Math.min(step + 1, QUESTIONS.length)} de {QUESTIONS.length}</p>
                 </div>
               </div>
               <button 
                 onClick={() => setIsOpen(false)} 
-                className="p-2 text-slate-400 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-all"
+                className="p-2 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-all"
                 aria-label="Cerrar cuestionario de WhatsApp"
               >
                 <X size={20} />
@@ -169,12 +169,12 @@ Cuándo: ${answers.q4}${url ? `\nMi web actual: ${url}` : ''}`;
                         className={`group flex items-center justify-between p-4 rounded-2xl border-2 transition-all text-left ${
                           answers[QUESTIONS[step].id] === opt
                             ? 'bg-blue-600 border-blue-600 text-white shadow-lg shadow-blue-200'
-                            : 'bg-white border-slate-100 text-slate-600 hover:border-blue-200 hover:bg-slate-50'
+                            : 'bg-white border-slate-100 text-slate-700 hover:border-blue-200 hover:bg-slate-50'
                         }`}
                       >
                         <span className="font-bold">{opt}</span>
                         <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${
-                          answers[QUESTIONS[step].id] === opt ? 'bg-white border-white text-blue-600' : 'border-slate-200 bg-white'
+                          answers[QUESTIONS[step].id] === opt ? 'bg-white border-white text-blue-600' : 'border-slate-300 bg-white'
                         }`}>
                           {answers[QUESTIONS[step].id] === opt && <CheckCircle2 size={16} />}
                         </div>
@@ -186,27 +186,27 @@ Cuándo: ${answers.q4}${url ? `\nMi web actual: ${url}` : ''}`;
                 // Final Review Step
                 <div className="flex-grow space-y-6">
                   <div className="text-center mb-4">
-                    <div className="bg-green-100 text-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="bg-green-100 text-green-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                       <CheckCircle2 size={32} />
                     </div>
                     <p className="text-2xl font-black text-slate-900">¡Todo listo!</p>
-                    <p className="text-slate-500 font-medium">Revisa tu objetivo antes de enviar.</p>
+                    <p className="text-slate-600 font-medium">Revisa tu objetivo antes de enviar.</p>
                   </div>
 
-                  <div className="bg-slate-50 p-5 rounded-3xl border border-slate-100 space-y-3">
+                  <div className="bg-slate-50 p-5 rounded-3xl border border-slate-200 space-y-3">
                     <div className="flex justify-between text-xs">
-                      <span className="text-slate-400 font-bold uppercase">Tu Objetivo</span>
+                      <span className="text-slate-500 font-bold uppercase">Tu Objetivo</span>
                       <span className="text-blue-600 font-black">{getObjective(answers.q1)}</span>
                     </div>
                     <div className="flex justify-between text-xs">
-                      <span className="text-slate-400 font-bold uppercase">Presupuesto</span>
+                      <span className="text-slate-500 font-bold uppercase">Presupuesto</span>
                       <span className="text-slate-900 font-bold">{answers.q3}</span>
                     </div>
                   </div>
 
                   <div>
                     <label htmlFor="current-web" className="flex items-center gap-2 font-black text-slate-800 mb-3 text-xs uppercase tracking-widest">
-                      <Globe size={14} /> URL de tu web actual <span className="text-slate-400 font-medium lowercase">(opcional)</span>
+                      <Globe size={14} /> URL de tu web actual <span className="text-slate-500 font-medium lowercase">(opcional)</span>
                     </label>
                     <input
                       id="current-web"
@@ -226,7 +226,7 @@ Cuándo: ${answers.q4}${url ? `\nMi web actual: ${url}` : ''}`;
                   {step > 0 && (
                     <button 
                       onClick={prevStep}
-                      className="p-4 rounded-2xl text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-all flex items-center justify-center border border-transparent hover:border-slate-200"
+                      className="p-4 rounded-2xl text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-all flex items-center justify-center border border-transparent hover:border-slate-200"
                       aria-label="Volver al paso anterior"
                     >
                       <ArrowLeft size={20} />
@@ -240,7 +240,7 @@ Cuándo: ${answers.q4}${url ? `\nMi web actual: ${url}` : ''}`;
                       className={`flex-grow py-4 rounded-2xl font-black transition-all flex items-center justify-center gap-2 ${
                         answers[QUESTIONS[step].id]
                           ? 'bg-slate-900 text-white hover:bg-slate-800 shadow-xl'
-                          : 'bg-slate-100 text-slate-300 cursor-not-allowed'
+                          : 'bg-slate-100 text-slate-400 cursor-not-allowed'
                       }`}
                     >
                       Siguiente <ArrowRight size={18} />
@@ -248,7 +248,7 @@ Cuándo: ${answers.q4}${url ? `\nMi web actual: ${url}` : ''}`;
                   ) : (
                     <button
                       onClick={handleSend}
-                      className="flex-grow py-4 rounded-2xl bg-green-500 text-white font-black hover:bg-green-600 shadow-xl shadow-green-200 transition-all flex items-center justify-center gap-2 text-lg"
+                      className="flex-grow py-4 rounded-2xl bg-green-700 text-white font-black hover:bg-green-800 shadow-xl shadow-green-200 transition-all flex items-center justify-center gap-2 text-lg"
                     >
                       <MessageCircle size={20} />
                       Enviar por WhatsApp
@@ -256,7 +256,7 @@ Cuándo: ${answers.q4}${url ? `\nMi web actual: ${url}` : ''}`;
                   )}
                 </div>
                 {step === QUESTIONS.length && (
-                  <p className="text-[10px] text-slate-400 text-center leading-tight">
+                  <p className="text-[10px] text-slate-500 text-center leading-tight">
                     Pulsando el botón enviar por WhatsApp consientes nuestra Política de Privacidad y Términos.
                   </p>
                 )}
@@ -265,7 +265,7 @@ Cuándo: ${answers.q4}${url ? `\nMi web actual: ${url}` : ''}`;
 
             {/* Micro-Copy Footer */}
             <div className="bg-slate-50 p-4 border-t border-slate-100 text-center">
-              <p className="text-[10px] text-slate-400 font-bold uppercase tracking-tighter">
+              <p className="text-[10px] text-slate-600 font-bold uppercase tracking-tighter">
                 Sin bots. Recibirás respuesta de un humano en menos de 24h.
               </p>
             </div>
