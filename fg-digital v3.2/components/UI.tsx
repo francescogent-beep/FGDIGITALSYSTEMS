@@ -28,7 +28,7 @@ export const TallyModal: React.FC = () => {
             <div className="w-8 h-8 md:w-10 md:h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-[12px] md:text-[14px] shadow-lg shadow-blue-500/20">FG</div>
             <div className="flex flex-col">
               <span className="text-sm md:text-lg font-black text-slate-900 tracking-tighter uppercase leading-none">DIGITAL <span className="text-blue-600">SYSTEMS</span></span>
-              <span className="text-[9px] md:text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-0.5">Propuesta Personalizada</span>
+              <span className="text-[9px] md:text-[10px] font-bold text-slate-600 uppercase tracking-widest mt-0.5">Propuesta Personalizada</span>
             </div>
           </div>
           <button 
@@ -53,7 +53,7 @@ export const TallyModal: React.FC = () => {
 
         {/* Footer Micro-copy (Desktop only) */}
         <div className="hidden md:block px-10 py-4 bg-slate-50 text-center border-t border-slate-100">
-          <p className="text-[10px] text-slate-500 font-bold uppercase tracking-[0.2em]">Respuesta garantizada en menos de 24 horas</p>
+          <p className="text-[10px] text-slate-600 font-bold uppercase tracking-[0.2em]">Respuesta garantizada en menos de 24 horas</p>
         </div>
       </div>
     </div>
@@ -123,7 +123,7 @@ export const FAQAccordion: React.FC<{ question: string; answer: string }> = ({ q
         </div>
       </button>
       <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-        <div className="px-6 pb-6 pt-0 md:px-8 md:pb-8 text-slate-700 leading-relaxed text-sm md:text-base border-t border-slate-50">
+        <div className="px-6 pb-6 pt-0 md:px-8 md:pb-8 text-slate-800 leading-relaxed text-sm md:text-base border-t border-slate-50">
           {answer}
         </div>
       </div>
@@ -135,7 +135,7 @@ export const Breadcrumbs: React.FC<{
   items: { label: string; path?: string }[];
 }> = ({ items }) => (
   <nav className="flex mb-6 md:mb-10 overflow-x-auto whitespace-nowrap pb-2 md:pb-0 scrollbar-hide">
-    <ol className="flex items-center space-x-2 text-xs md:text-sm font-semibold tracking-wide uppercase text-slate-500">
+    <ol className="flex items-center space-x-2 text-xs md:text-sm font-semibold tracking-wide uppercase text-slate-600">
       <li>
         <Link to="/" className="hover:text-blue-600 transition-colors flex items-center gap-1.5">
           <HomeIcon size={14} />
@@ -180,20 +180,20 @@ export const PricingCard: React.FC<{
       <div className="mb-8">
         <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-2 tracking-tight">{plan.name}</h3>
         {plan.tagline && (
-          <p className="text-slate-600 text-[11px] font-bold uppercase tracking-widest mb-4 italic">"{plan.tagline}"</p>
+          <p className="text-slate-700 text-[11px] font-bold uppercase tracking-widest mb-4 italic">"{plan.tagline}"</p>
         )}
-        <div className="inline-flex items-center gap-2 text-blue-700 text-[10px] font-black uppercase tracking-wider px-4 py-1.5 bg-blue-50 rounded-full">
+        <div className="inline-flex items-center gap-2 text-blue-800 text-[10px] font-black uppercase tracking-wider px-4 py-1.5 bg-blue-50 rounded-full">
           <Zap size={12} className="fill-current" />
           {labels[plan.id]}
         </div>
       </div>
 
       <div className="mb-8 flex items-baseline gap-2">
-        <span className="text-slate-500 text-sm font-medium italic">Desde</span>
+        <span className="text-slate-600 text-sm font-medium italic">Desde</span>
         <span className="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter">{plan.price}</span>
       </div>
       
-      <p className="text-slate-700 text-sm md:text-base mb-10 min-h-[56px] leading-relaxed">{plan.description}</p>
+      <p className="text-slate-800 text-sm md:text-base mb-10 min-h-[56px] leading-relaxed">{plan.description}</p>
       
       <div className="bg-slate-50/80 backdrop-blur-sm p-5 rounded-[1.5rem] mb-10 flex items-center gap-4 border border-slate-100 group-hover:bg-blue-50/50 transition-colors">
          <div className="bg-white text-green-700 p-2 rounded-xl shadow-sm">
@@ -201,14 +201,14 @@ export const PricingCard: React.FC<{
          </div>
          <div>
             <span className="text-xs font-black text-slate-900 block uppercase tracking-tight">Propiedad Total</span>
-            <span className="text-[11px] text-slate-600 font-medium">Pago único, sin sorpresas mensuales.</span>
+            <span className="text-[11px] text-slate-700 font-medium">Pago único, sin sorpresas mensuales.</span>
          </div>
       </div>
 
       <ul className="space-y-5 mb-12 flex-grow">
         {plan.features.map((f: string, i: number) => (
           <li key={i} className="flex items-start gap-4 text-sm md:text-base text-slate-800 font-medium leading-snug">
-            <div className={`mt-0.5 rounded-full p-0.5 transition-colors ${plan.recommended ? 'bg-blue-600 text-white' : 'bg-blue-100 text-blue-700'}`}>
+            <div className={`mt-0.5 rounded-full p-0.5 transition-colors ${plan.recommended ? 'bg-blue-600 text-white' : 'bg-blue-100 text-blue-800'}`}>
               <CircleCheck size={18} />
             </div>
             <span>{f}</span>
