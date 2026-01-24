@@ -63,7 +63,8 @@ const Home: React.FC = () => {
         },
         "sameAs": [
           "https://www.linkedin.com/in/francescogentile/",
-          "https://www.instagram.com/fgdigitalsystems/"
+          "https://www.instagram.com/fg_digital_systems/",
+          "https://www.facebook.com/people/FG-Digital-Systems/61587041462172/"
         ]
       },
       {
