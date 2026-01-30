@@ -6,26 +6,28 @@
     <title>Diseño Web y SEO para Pymes | FG Digital Systems</title>
     <meta name="description" content="Diseño web y SEO local para Pymes en Murcia. Creamos sistemas web que atraen clientes y aumentan ventas sin cuotas mensuales.">
     
-    <!-- 1. Optimización de Conexiones -->
+    <!-- 1. Pistas de Prioridad -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://images.unsplash.com">
-
-    <!-- 2. Precarga de Imagen LCP (Crítica para velocidad) -->
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1460925895917-afdab827c52f?fm=webp&fit=crop&q=70&w=1200" fetchpriority="high">
 
-    <!-- 3. Cargador Híbrido: Tailwind CDN solo en Preview/Dev -->
+    <!-- 2. CSS Crítico (FCP Instantáneo) -->
+    <style>
+      :root { --bg-color: #f8fafc; --text-main: #0f172a; --blue-600: #2563eb; }
+      body { background-color: var(--bg-color); color: var(--text-main); margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+      #root { min-height: 100vh; display: flex; flex-direction: column; }
+      .hero-bg { background-color: #fff; }
+    </style>
+
+    <!-- 3. Cargador Inteligente (Tailwind CDN solo en Preview) -->
     <script>
       (function() {
-        const isPreview = /localhost|aistudio|usercontent|blob|about/.test(window.location.hostname) || window.location.protocol === 'blob:';
-        if (isPreview) {
-          console.log('Ambiente de Preview detectado: Activando Tailwind CDN...');
+        const isDev = /localhost|aistudio|usercontent|blob|about/.test(window.location.hostname) || window.location.protocol === 'blob:';
+        if (isDev) {
           const script = document.createElement('script');
           script.src = 'https://cdn.tailwindcss.com?plugins=typography';
-          script.async = false;
-          document.head.appendChild(script);
-          
-          window.addEventListener('DOMContentLoaded', () => {
+          script.onload = () => {
             tailwind.config = {
               theme: {
                 extend: {
@@ -36,24 +38,16 @@
                 }
               }
             };
-          });
+          };
+          document.head.appendChild(script);
         }
       })();
     </script>
 
-    <!-- 4. Fuentes Asíncronas (Rendimiento 100) -->
+    <!-- 4. Fuentes Asíncronas -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
-    </noscript>
 
-    <!-- 5. Prevención de saltos visuales (CLS) -->
-    <style>
-      body { background-color: #f8fafc; margin: 0; font-family: 'Inter', system-ui, sans-serif; }
-      #root { opacity: 0; }
-      #root:not(:empty) { opacity: 1; transition: opacity 0.3s ease-in; }
-    </style>
-
+    <!-- 5. Import Map Sólido -->
     <script type="importmap">
 {
   "imports": {
@@ -71,28 +65,21 @@
 }
 </script>
 
-    <!-- 6. Scripts de Terceros Diferidos -->
+    <!-- 6. GTM Deferral -->
     <script>
       window.addEventListener('load', function() {
-        const loadGTM = () => {
+        setTimeout(function() {
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','G-T6JS6Z27GG');
-        };
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(loadGTM, { timeout: 4000 });
-        } else {
-          setTimeout(loadGTM, 5000);
-        }
+        }, 4000);
       });
     </script>
-<link rel="stylesheet" href="/index.css">
 </head>
-<body>
+<body class="hero-bg">
     <div id="root"></div>
-    <script type="module" src="/index.tsx" crossorigin></script>
-<script type="module" src="/index.tsx"></script>
+    <script type="module" src="/index.tsx" async crossorigin></script>
 </body>
 </html>
