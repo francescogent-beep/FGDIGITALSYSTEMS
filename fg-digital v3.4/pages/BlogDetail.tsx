@@ -62,18 +62,18 @@ const BlogDetail: React.FC = () => {
           }
         }
       },
-      {
+      ...(post.relatedFaqs && post.relatedFaqs.length > 0 ? [{
         "@type": "FAQPage",
         "@id": `${CANONICAL_DOMAIN}${seoData.path}/#faq`,
-        "mainEntity": post.relatedFaqs ? post.relatedFaqs.map(f => ({
+        "mainEntity": post.relatedFaqs.map(f => ({
           "@type": "Question",
           "name": f.question,
           "acceptedAnswer": {
             "@type": "Answer",
             "text": f.answer
           }
-        })) : []
-      }
+        }))
+      }] : [])
     ]
   };
 
