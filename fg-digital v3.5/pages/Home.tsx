@@ -133,8 +133,8 @@ const Home: React.FC = () => {
         {/* Background Image with Apple-style Overlay - Human Centric */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=2070" 
-            alt="Colaboración humana y profesional" 
+            src="" 
+            alt="Sistemas Digitales" 
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
