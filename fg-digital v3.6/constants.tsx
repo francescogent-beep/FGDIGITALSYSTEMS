@@ -6,7 +6,7 @@ export const ROUTES = [
   { name: 'Inicio', path: '/' },
   { name: 'Servicios', path: '/servicios' },
   { name: 'Packs', path: '/tarifas-diseno-web' },
-  { name: 'Casos', path: '/casos-de-exito' },
+  { name: 'Casos', path: '/casos-exito' },
   { name: 'Blog', path: '/blog' },
   { name: 'FAQ', path: '/preguntas-frecuentes' },
   { name: 'Nosotros', path: '/sobre-nosotros' },
