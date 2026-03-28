@@ -237,7 +237,7 @@ export const Footer: React.FC = () => {
             <li><Link href="/" className="hover:text-blue-500 font-medium">Inicio</Link></li>
             <li><Link href="/sobre-nosotros" className="hover:text-blue-500 font-medium">Sobre Nosotros</Link></li>
             <li><Link href="/tarifas-diseno-web" className="hover:text-blue-500 font-medium">Packs y Soluciones</Link></li>
-            <li><Link href="/casos-de-exito" className="hover:text-blue-500 font-medium">Casos de Éxito</Link></li>
+            <li><Link href="/casos-exito" className="hover:text-blue-500 font-medium">Casos de Éxito</Link></li>
             <li><Link href="/blog" className="hover:text-blue-500 font-medium">Blog y Guías</Link></li>
             <li><Link href="/preguntas-frecuentes" className="hover:text-blue-500 font-medium">FAQ</Link></li>
             <li><Link href="/contacto" className="hover:text-blue-500 font-medium">Contacto</Link></li>
