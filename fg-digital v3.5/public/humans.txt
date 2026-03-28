@@ -1,9 +1,0 @@
-/* TEAM */
-Chef: Francesco Gent
-Contact: francesco_gent@yahoo.it
-From: Murcia, Spain
-
-/* SITE */
-Last update: 2026/03/27
-Language: Spanish
-Software: React, Vite, Tailwind CSS, Framer Motion
