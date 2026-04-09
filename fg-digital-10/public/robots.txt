@@ -114,4 +114,4 @@ User-agent: YouBot
 Allow: /
 
 Sitemap: https://fgdigitalsystems.com/sitemap.xml
-llms: https://fgdigitalsystems.com/llms.txt
+# LLM discovery: https://fgdigitalsystems.com/llms.txt
